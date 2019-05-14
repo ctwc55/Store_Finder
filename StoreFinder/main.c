@@ -1,10 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+typedef struct {
+	int key;
+}Node;
+
+int graph[100][100];
+
 int main()
 {
-	//test
-	//test2
+	
+
 	system("pause");
 	return 0;
 }
