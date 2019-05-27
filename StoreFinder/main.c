@@ -22,5 +22,3 @@ int main()
 	system("pause");
 	return 0;
 }
-
-//승열아 안녕
