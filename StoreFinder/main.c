@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "storeinfo.h"
 
 typedef struct {
 	int position;	 
@@ -18,6 +18,8 @@ int graph[100][100];
 
 int main()
 {
+
+
 
 	system("pause");
 	return 0;
