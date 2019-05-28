@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
+    <ClCompile Include="storeinfo.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="storeinfo.h" />
