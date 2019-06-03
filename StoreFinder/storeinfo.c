@@ -1,3 +1,4 @@
+/*
 //함수의 정의를 위치
 #include "storeinfo.h"
 
@@ -206,7 +207,7 @@ store[16].store_to_pos_dist = 119;
 store[16].second_near = 205;
 store[16].store_to_sec_dist = 143;
 
-//세븐일레븐 명륜카페점 
+//세븐일레븐 명륜카페점
 store[17].position = 214;
 store[17].url = ”X”;
 store[17].name = ”세븐일레븐 명륜카페점”;
@@ -1405,3 +1406,4 @@ store[216].name = ”600주년기념관”;
 store[216].price = 0;
 store[216].type = 4;
 store[216].type_eat = 0;
+*/
