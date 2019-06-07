@@ -1,7 +1,8 @@
 #pragma once
 #define __STOREINFO_H__
 
-typedef struct { //Á¤Á¡ Ç¥Çö¿¡ »ç¿ëµÇ´Â ±¸Á¶Ã¼
+typedef struct { //ì •ì  í‘œí˜„ì— ì‚¬ìš©ë˜ëŠ” êµ¬ì¡°ì²´
+	int key;
 	char url[100];
 	char name[100];
 	int price;
@@ -16,794 +17,794 @@ typedef struct { //Á¤Á¡ Ç¥Çö¿¡ »ç¿ëµÇ´Â ±¸Á¶Ã¼
 
 void setStoreInfo(Node store[]) {
 	
-	//Á¤Á¡
-	//200°æ¿µ°ü 201Áß¾Óµµ¼­°ü  202ÂÊ¹®¿¤¸®º£ÀÌÅÍ  
-	//203ÇĞ±³Á¤¹®  204ÇıÈ­¿ª4¹øÃâ±¸(´ë¸í°Å¸®213)  
-	//205¿Ã·¹»ç°Å¸®  206ÇıÈ­¿ª1¹øÃâ±¸(< -215)
-	//207È£¾Ï°ü 208¼ö¼±°ü 209°æÁ¦°ü 210±¹Á¦°ü
+	//ì •ì 
+	//119 ìˆ˜ì„ ê´€  120 ê²½ì œê´€  121 í˜¸ì•”ê´€  122 ê²½ì˜ê´€  123 ì¤‘ì•™ë„ì„œê´€  124 êµ­ì œê´€
+	//125 600ì£¼ë…„ê¸°ë…ê´€  126 ìª½ë¬¸ì—˜ë¦¬ë² ì´í„°  127 í•™êµì •ë¬¸  128 ì˜¬ë ˆì‚¬ê±°ë¦¬  129 í˜œí™”ì—­4ë²ˆì¶œêµ¬  130 í˜œí™”ì—­1ë²ˆì¶œêµ¬
 
 	//Position
-	//±³³»store(0~6) ¼Ò³ª¹«±æstore(7~39) ´ë¸í°Å¸®store(40~54, 108~118)
-	//ÂÊ¹®store(55 - 72)  Á¤¹®store(69 - 88, 103 - 107)  ´ëÇĞ·Îstore(89 - 102)
+	//êµë‚´store(0~6) ì†Œë‚˜ë¬´ê¸¸store(7~39) ëŒ€ëª…ê±°ë¦¬store(40~54, 108~118)
+	//ìª½ë¬¸store(55 - 72)  ì •ë¬¸store(73 - 88, 103 - 107)  ëŒ€í•™ë¡œstore(89 - 102)
 
+	// type ì‹ë‹¹ = 0, ì•½êµ­ = 1, í¸ì˜ì , ë§ˆíŠ¸ = 2, ì¹´í˜ = 3, ì •ì  = 4
+	// type_eat ì‹ë‹¹X = 0 í•œì‹ = 1, ì¼ì‹ = 2, ì¤‘ì‹ = 3, ì–‘ì‹ = 4, ê³ ê¸° = 5, ë‹­ = 6, ê¸°íƒ€ = 7
 
-	//------------------------±³³»-------------------------
+	//------------------------êµë‚´------------------------
 
-	//±İÀÜµğ ½Ä´ç
-	store[0].position = 200;
+	//ê¸ˆì”ë”” ì‹ë‹¹
+	store[0].position = 122;
 	strcpy(store[0].url, "X");
-	strcpy(store[0].name, "±İÀÜµğ½Ä´ç");
+	strcpy(store[0].name, "ê¸ˆì”ë””ì‹ë‹¹");
 	store[0].price = 5000;
 	store[0].type = 0;
 	store[0].type_eat = 7;
 	store[0].store_to_pos_dist = 0;
-	store[0].second_near = 201;
-	store[0].store_to_sec_dist = 92;
+	store[0].second_near = 120;
+	store[0].store_to_sec_dist = 46;
 
-	//¸¾½ºÅÍÄ¡(±İÀÜµğ)
-	store[1].position = 200;
+	//ë§˜ìŠ¤í„°ì¹˜(ê¸ˆì”ë””)
+	store[1].position = 122;
 	strcpy(store[1].url, "X");
-	strcpy(store[1].name, "¸¾½ºÅÍÄ¡(±İÀÜµğ)");
+	strcpy(store[1].name, "ë§˜ìŠ¤í„°ì¹˜(ê¸ˆì”ë””)");
 	store[1].price = 5000;
 	store[1].type = 0;
 	store[1].type_eat = 7;
 	store[1].store_to_pos_dist = 0;
-	store[1].second_near = 201;
-	store[1].store_to_sec_dist = 92;
+	store[1].second_near = 120;
+	store[1].store_to_sec_dist = 46;
 
 	//CU
-	store[2].position = 200;
+	store[2].position = 122;
 	strcpy(store[2].url, "X");
 	strcpy(store[2].name, "CU");
 	store[2].price = 0;
 	store[2].type = 2;
 	store[2].type_eat = 0;
 	store[2].store_to_pos_dist = 0;
-	store[2].second_near = 201;
-	store[2].store_to_sec_dist = 92;
+	store[2].second_near = 120;
+	store[2].store_to_sec_dist = 46;
 
-	//»ç¶û¹æ
-	store[3].position = 200;
+	//ì‚¬ë‘ë°©
+	store[3].position = 122;
 	strcpy(store[3].url, "X");
-	strcpy(store[3].name, "»ç¶û¹æ");
+	strcpy(store[3].name, "ì‚¬ë‘ë°©");
 	store[3].price = 3000;
 	store[3].type = 3;
 	store[3].type_eat = 0;
 	store[3].store_to_pos_dist = 0;
-	store[3].second_near = 201;
-	store[3].store_to_sec_dist = 92;
+	store[3].second_near = 120;
+	store[3].store_to_sec_dist = 46;
 
-	//ÀºÇà°ñ½Ä´ç
-	store[4].position = 216;
+	//ì€í–‰ê³¨ì‹ë‹¹
+	store[4].position = 125;
 	strcpy(store[4].url, "X");
-	strcpy(store[4].name, "ÀºÇà°ñ ½Ä´ç");
+	strcpy(store[4].name, "ì€í–‰ê³¨ ì‹ë‹¹");
 	store[4].price = 5000;
 	store[4].type = 0;
 	store[4].type_eat = 7;
 	store[4].store_to_pos_dist = 0;
-	store[4].second_near = 210;
+	store[4].second_near = 124;
 	store[4].store_to_sec_dist = 121;
 
-	//µµ¹Ì³ëÇÇÀÚ(ÀºÇà°ñ)
-	store[5].position = 216;
+	//ë„ë¯¸ë…¸í”¼ì(ì€í–‰ê³¨)
+	store[5].position = 125;
 	strcpy(store[5].url, "https://web.dominos.co.kr/main");
-	strcpy(store[5].name, "µµ¹Ì³ëÇÇÀÚ(ÀºÇà°ñ)");
+	strcpy(store[5].name, "ë„ë¯¸ë…¸í”¼ì(ì€í–‰ê³¨)");
 	store[5].price = 10000;
 	store[5].type = 0;
 	store[5].type_eat = 4;
 	store[5].store_to_pos_dist = 0;
-	store[5].second_near = 210;
+	store[5].second_near = 124;
 	store[5].store_to_sec_dist = 121;
 
-	//¼­ºê¿şÀÌ(ÀºÇà°ñ)
-	store[6].position = 216;
+	//ì„œë¸Œì›¨ì´(ì€í–‰ê³¨)
+	store[6].position = 125;
 	strcpy(store[6].url, "http://subway.co.kr/");
-	strcpy(store[6].name, "¼­ºê¿şÀÌ(ÀºÇà°ñ)");
+	strcpy(store[6].name, "ì„œë¸Œì›¨ì´(ì€í–‰ê³¨)");
 	store[6].price = 8000;
 	store[6].type = 0;
 	store[6].type_eat = 7;
 	store[6].store_to_pos_dist = 0;
-	store[6].second_near = 210;
+	store[6].second_near = 124;
 	store[6].store_to_sec_dist = 121;
 
-	//-------------------¼Ò³ª¹«±æ----------------------
+	//-----------------ì†Œë‚˜ë¬´ê¸¸----------------------
 
-	//¸íÂŞ»ï
-	store[7].position = 205;
+	//ëª…ì­ˆì‚¼
+	store[7].position = 128;
 	strcpy(store[7].url, "https://www.audwn3.com/");
-	strcpy(store[7].name, "¸íÂŞ»ï");
+	strcpy(store[7].name, "ëª…ì­ˆì‚¼");
 	store[7].price = 15000;
 	store[7].type = 0;
 	store[7].type_eat = 1;
 	store[7].store_to_pos_dist = 99;
-	store[7].second_near = 204;
+	store[7].second_near = 129;
 	store[7].store_to_sec_dist = 251;
 
-	//Àü¼³ÀÇ Â«»Í
-	store[8].position = 205;
+	//ì „ì„¤ì˜ ì§¬ë½•
+	store[8].position = 128;
 	strcpy(store[8].url, "www.legendgo.co.kr");
-	strcpy(store[8].name, "Àü¼³ÀÇ Â«»Í");
+	strcpy(store[8].name, "ì „ì„¤ì˜ ì§¬ë½•");
 	store[8].price = 10000;
 	store[8].type = 0;
 	store[8].type_eat = 3;
 	store[8].store_to_pos_dist = 116;
-	store[8].second_near = 204;
+	store[8].second_near = 129;
 	store[8].store_to_sec_dist = 212;
 
-	//µ·µ·Á¤
-	store[9].position = 205;
+	//ëˆëˆì •
+	store[9].position = 128;
 	strcpy(store[9].url, "X");
-	strcpy(store[9].name, "µ·µ·Á¤");
+	strcpy(store[9].name, "ëˆëˆì •");
 	store[9].price = 15000;
 	store[9].type = 0;
 	store[9].type_eat = 2;
 	store[9].store_to_pos_dist = 98;
-	store[9].second_near = 204;
+	store[9].second_near = 129;
 	store[9].store_to_sec_dist = 255;
 
-	//µªÂ¥ÀÌ
-	store[10].position = 205;
+	//ëì§œì´
+	store[10].position = 128;
 	strcpy(store[10].url, "http://www.instagram.com/dep_trai_korea");
-	strcpy(store[10].name, "µªÂ¥ÀÌ");
+	strcpy(store[10].name, "ëì§œì´");
 	store[10].price = 10000;
 	store[10].type = 0;
 	store[10].type_eat = 7;
 	store[10].store_to_pos_dist = 125;
-	store[10].second_near = 204;
+	store[10].second_near = 129;
 	store[10].store_to_sec_dist = 277;
 
-	//±ò¸®
-	store[11].position = 205;
+	//ê¹”ë¦¬
+	store[11].position = 128;
 	strcpy(store[11].url, "X");
-	strcpy(store[11].name, "±ò¸®");
+	strcpy(store[11].name, "ê¹”ë¦¬");
 	store[11].price = 15000;
 	store[11].type = 0;
 	store[11].type_eat = 7;
 	store[11].store_to_pos_dist = 125;
-	store[11].second_near = 204;
+	store[11].second_near = 129;
 	store[11].store_to_sec_dist = 277;
 
-	//¸£¾Æºê¸£
-	store[12].position = 205;
+	//ë¥´ì•„ë¸Œë¥´
+	store[12].position = 128;
 	strcpy(store[12].url, "http://instagram.com/cafe_lehavre");
-	strcpy(store[12].name, "¸£¾Æºê¸£");
+	strcpy(store[12].name, "ë¥´ì•„ë¸Œë¥´");
 	store[12].price = 5000;
 	store[12].type = 3;
 	store[12].type_eat = 0;
 	store[12].store_to_pos_dist = 69;
-	store[12].second_near = 205;
+	store[12].second_near = 129;
 	store[12].store_to_sec_dist = 262;
 
-	//¿ÍÀÎÇÑÀÜ
-	store[13].position = 205;
+	//ì™€ì¸í•œì”
+	store[13].position = 128;
 	strcpy(store[13].url, "X");
-	strcpy(store[13].name, "¿ÍÀÎÇÑÀÜ");
+	strcpy(store[13].name, "ì™€ì¸í•œì”");
 	store[13].price = 15000;
 	store[13].type = 0;
 	store[13].type_eat = 4;
 	store[13].store_to_pos_dist = 110;
-	store[13].second_near = 204;
+	store[13].second_near = 129;
 	store[13].store_to_sec_dist = 303;
 
-	//ÇöÃÊ¹ä
-	store[14].position = 205;
+	//í˜„ì´ˆë°¥
+	store[14].position = 128;
 	strcpy(store[14].url, "X");
-	strcpy(store[14].name, "ÇöÃÊ¹ä");
+	strcpy(store[14].name, "í˜„ì´ˆë°¥");
 	store[14].price = 10000;
 	store[14].type = 0;
 	store[14].type_eat = 2;
 	store[14].store_to_pos_dist = 131;
-	store[14].second_near = 204;
+	store[14].second_near = 129;
 	store[14].store_to_sec_dist = 283;
 
-	//ÀºÇà°ñ
-	store[15].position = 205;
+	//ì€í–‰ê³¨
+	store[15].position = 128;
 	strcpy(store[15].url, "X");
-	strcpy(store[15].name, "ÀºÇà°ñ");
+	strcpy(store[15].name, "ì€í–‰ê³¨");
 	store[15].price = 15000;
 	store[15].type = 0;
 	store[15].type_eat = 2;
 	store[15].store_to_pos_dist = 201;
-	store[15].second_near = 204;
+	store[15].second_near = 129;
 	store[15].store_to_sec_dist = 317;
 
-	//Ä«Æä ÇıÈ­µ¿
-	store[16].position = 205;
+	//ì¹´í˜ í˜œí™”ë™
+	store[16].position = 128;
 	strcpy(store[16].url, "X");
-	strcpy(store[16].name, "Ä«Æä ÇıÈ­µ¿");
+	strcpy(store[16].name, "ì¹´í˜ í˜œí™”ë™");
 	store[16].price = 8000;
 	store[16].type = 3;
 	store[16].type_eat = 0;
 	store[16].store_to_pos_dist = 182;
-	store[16].second_near = 204;
+	store[16].second_near = 129;
 	store[16].store_to_sec_dist = 298;
 
-	//¼¼ºìÀÏ·¹ºì ¸í·ûÄ«ÆäÁ¡ 
-	store[17].position = 205;
+	//ì„¸ë¸ì¼ë ˆë¸ ëª…ë¥œì¹´í˜ì  
+	store[17].position = 128;
 	strcpy(store[17].url, "X");
-	strcpy(store[17].name, "¼¼ºìÀÏ·¹ºì ¸í·ûÄ«ÆäÁ¡");
+	strcpy(store[17].name, "ì„¸ë¸ì¼ë ˆë¸ ëª…ë¥œì¹´í˜ì ");
 	store[17].price = 0;
 	store[17].type = 2;
 	store[17].type_eat = 0;
 	store[17].store_to_pos_dist = 185;
-	store[17].second_near = 204;
+	store[17].second_near = 129;
 	store[17].store_to_sec_dist = 287;
 
-	//Á¤¹Î¿Â´©¸®¾à±¹
-	store[18].position = 205;
+	//ì •ë¯¼ì˜¨ëˆ„ë¦¬ì•½êµ­
+	store[18].position = 128;
 	strcpy(store[18].url, "X");
-	strcpy(store[18].name, "Á¤¹Î¿Â´©¸®¾à±¹");
+	strcpy(store[18].name, "ì •ë¯¼ì˜¨ëˆ„ë¦¬ì•½êµ­");
 	store[18].price = 0;
 	store[18].type = 1;
 	store[18].type_eat = 0;
 	store[18].store_to_pos_dist = 185;
-	store[18].second_near = 204;
+	store[18].second_near = 129;
 	store[18].store_to_sec_dist = 287;
 
-	//Ã¢È­´ç
-	store[19].position = 205;
+	//ì°½í™”ë‹¹
+	store[19].position = 128;
 	strcpy(store[19].url, "http://www.chdang.com");
-	strcpy(store[19].name, "Ã¢È­´ç");
+	strcpy(store[19].name, "ì°½í™”ë‹¹");
 	store[19].price = 10000;
 	store[19].type = 0;
 	store[19].type_eat = 1;
 	store[19].store_to_pos_dist = 183;
-	store[19].second_near = 204;
+	store[19].second_near = 129;
 	store[19].store_to_sec_dist = 299;
 
-	//¸à¾ß»ê´ÙÀÌ¸Ş
-	store[20].position = 205;
+	//ë©˜ì•¼ì‚°ë‹¤ì´ë©”
+	store[20].position = 128;
 	strcpy(store[20].url, "http://www.menyasandaime.co.kr/");
-	strcpy(store[20].name, "¸à¾ß»ê´ÙÀÌ¸Ş");
+	strcpy(store[20].name, "ë©˜ì•¼ì‚°ë‹¤ì´ë©”");
 	store[20].price = 8000;
 	store[20].type = 0;
 	store[20].type_eat = 2;
 	store[20].store_to_pos_dist = 205;
-	store[20].second_near = 204;
+	store[20].second_near = 129;
 	store[20].store_to_sec_dist = 321;
 
-	//¶ó¹Ì½º
-	store[21].position = 205;
+	//ë¼ë¯¸ìŠ¤
+	store[21].position = 128;
 	strcpy(store[21].url, "X");
-	strcpy(store[21].name, "¶ó¹Ì½º");
+	strcpy(store[21].name, "ë¼ë¯¸ìŠ¤");
 	store[21].price = 5000;
 	store[21].type = 3;
 	store[21].type_eat = 0;
 	store[21].store_to_pos_dist = 181;
-	store[21].second_near = 204;
+	store[21].second_near = 129;
 	store[21].store_to_sec_dist = 297;
 
-	//ºÎÅºÃò
-	store[22].position = 205;
+	//ë¶€íƒ„ì¸„
+	store[22].position = 128;
 	strcpy(store[22].url, "http://butanchu.com");
-	strcpy(store[22].name, "ºÎÅºÃò");
+	strcpy(store[22].name, "ë¶€íƒ„ì¸„");
 	store[22].price = 10000;
 	store[22].type = 0;
 	store[22].type_eat = 2;
 	store[22].store_to_pos_dist = 255;
-	store[22].second_near = 204;
+	store[22].second_near = 129;
 	store[22].store_to_sec_dist = 309;
 
-	//¼­¾çÁı
-	store[23].position = 205;
+	//ì„œì–‘ì§‘
+	store[23].position = 128;
 	strcpy(store[23].url, "https://www.instagram.com/seoyangzip");
-	strcpy(store[23].name, "¼­¾çÁı");
+	strcpy(store[23].name, "ì„œì–‘ì§‘");
 	store[23].price = 15000;
 	store[23].type = 0;
 	store[23].type_eat = 4;
 	store[23].store_to_pos_dist = 255;
-	store[23].second_near = 204;
+	store[23].second_near = 129;
 	store[23].store_to_sec_dist = 309;
 
-	//¿±±â¶±ººÀÌ
-	store[24].position = 205;
+	//ì—½ê¸°ë–¡ë³¶ì´
+	store[24].position = 128;
 	strcpy(store[24].url, "http://www.yupdduk.com/");
-	strcpy(store[24].name, "¿±±â¶±ººÀÌ");
+	strcpy(store[24].name, "ì—½ê¸°ë–¡ë³¶ì´");
 	store[24].price = 8000;
 	store[24].type = 0;
 	store[24].type_eat = 7;
 	store[24].store_to_pos_dist = 162;
-	store[24].second_near = 204;
+	store[24].second_near = 129;
 	store[24].store_to_sec_dist = 283;
 
-	//½Î´Ù±è¹ä
-	store[25].position = 205;
+	//ì‹¸ë‹¤ê¹€ë°¥
+	store[25].position = 128;
 	strcpy(store[25].url, "X");
-	strcpy(store[25].name, "½Î´Ù±è¹ä");
+	strcpy(store[25].name, "ì‹¸ë‹¤ê¹€ë°¥");
 	store[25].price = 8000;
 	store[25].type = 0;
 	store[25].type_eat = 1;
 	store[25].store_to_pos_dist = 158;
-	store[25].second_near = 204;
+	store[25].second_near = 129;
 	store[25].store_to_sec_dist = 270;
 
-	//Ä´ÅÍ½º
-	store[26].position = 205;
+	//ìº‘í„°ìŠ¤
+	store[26].position = 128;
 	strcpy(store[26].url, "X");
-	strcpy(store[26].name, "Ä´ÅÍ½º");
+	strcpy(store[26].name, "ìº‘í„°ìŠ¤");
 	store[26].price = 15000;
 	store[26].type = 0;
 	store[26].type_eat = 7;
 	store[26].store_to_pos_dist = 140;
-	store[26].second_near = 204;
+	store[26].second_near = 129;
 	store[26].store_to_sec_dist = 260;
 
-	//ºÀÃßÂò´ß
-	store[27].position = 214;
+	//ë´‰ì¶”ì°œë‹­
+	store[27].position = 128;
 	strcpy(store[27].url, "http://www.bongchu.com");
-	strcpy(store[27].name, "ºÀÃßÂò´ß");
+	strcpy(store[27].name, "ë´‰ì¶”ì°œë‹­");
 	store[27].price = 15000;
 	store[27].type = 0;
 	store[27].type_eat = 6;
 	store[27].store_to_pos_dist = 187;
-	store[27].second_near = 204;
+	store[27].second_near = 129;
 	store[27].store_to_sec_dist = 289;
 
-	//±³ÃÌÄ¡Å²
-	store[28].position = 205;
+	//êµì´Œì¹˜í‚¨
+	store[28].position = 128;
 	strcpy(store[28].url, "http://www.kyochon.com/");
-	strcpy(store[28].name, "±³ÃÌÄ¡Å²");
+	strcpy(store[28].name, "êµì´Œì¹˜í‚¨");
 	store[28].price = 20000;
 	store[28].type = 0;
 	store[28].type_eat = 6;
 	store[28].store_to_pos_dist = 197;
-	store[28].second_near = 204;
+	store[28].second_near = 129;
 	store[28].store_to_sec_dist = 299;
 
-	//È£È£½Ä´ç
-	store[29].position = 205;
+	//í˜¸í˜¸ì‹ë‹¹
+	store[29].position = 128;
 	strcpy(store[29].url, "https://www.instagram.com/hohosikdang/");
-	strcpy(store[29].name, "È£È£½Ä´ç");
+	strcpy(store[29].name, "í˜¸í˜¸ì‹ë‹¹");
 	store[29].price = 15000;
 	store[29].type = 0;
 	store[29].type_eat = 2;
 	store[29].store_to_pos_dist = 197;
-	store[29].second_near = 204;
+	store[29].second_near = 129;
 	store[29].store_to_sec_dist = 299;
 
-	//Á¤µ·
-	store[30].position = 205;
+	//ì •ëˆ
+	store[30].position = 128;
 	strcpy(store[30].url, "https://blog.naver.com/jungdon0916");
-	strcpy(store[30].name, "Á¤µ·");
+	strcpy(store[30].name, "ì •ëˆ");
 	store[30].price = 15000;
 	store[30].type = 0;
 	store[30].type_eat = 2;
 	store[30].store_to_pos_dist = 302;
-	store[30].second_near = 204;
+	store[30].second_near = 129;
 	store[30].store_to_sec_dist = 318;
 
-	//GS25 ¸í·û½ºÅ¸Á¡
-	store[31].position = 204;
+	//GS25 ëª…ë¥œìŠ¤íƒ€ì 
+	store[31].position = 129;
 	strcpy(store[31].url, "X");
-	strcpy(store[31].name, "GS25 ¸í·û½ºÅ¸Á¡");
+	strcpy(store[31].name, "GS25 ëª…ë¥œìŠ¤íƒ€ì ");
 	store[31].price = 0;
 	store[31].type = 2;
 	store[31].type_eat = 0;
 	store[31].store_to_pos_dist = 231;
-	store[31].second_near = 205;
+	store[31].second_near = 128;
 	store[31].store_to_sec_dist = 237;
 
-	//¸Ş¹ĞÇâ±×Áı
-	store[32].position = 204;
+	//ë©”ë°€í–¥ê·¸ì§‘
+	store[32].position = 129;
 	strcpy(store[32].url, "https://www.instagram.com/memilhyang");
-	strcpy(store[32].name, "¸Ş¹ĞÇâ±×Áı");
+	strcpy(store[32].name, "ë©”ë°€í–¥ê·¸ì§‘");
 	store[32].price = 15000;
 	store[32].type = 0;
 	store[32].type_eat = 6;
 	store[32].store_to_pos_dist = 199;
-	store[32].second_near = 205;
+	store[32].second_near = 128;
 	store[32].store_to_sec_dist = 246;
 
-	//ÂÉ¸®´ß
-	store[33].position = 204;
+	//ìª¼ë¦¬ë‹­
+	store[33].position = 129;
 	strcpy(store[33].url, "X");
-	strcpy(store[33].name, "ÂÉ¸®´ß");
+	strcpy(store[33].name, "ìª¼ë¦¬ë‹­");
 	store[33].price = 15000;
 	store[33].type = 0;
 	store[33].type_eat = 6;
 	store[33].store_to_pos_dist = 198;
-	store[33].second_near = 205;
+	store[33].second_near = 128;
 	store[33].store_to_sec_dist = 245;
 
-	//¹ö°ÅÆÄÅ©
-	store[34].position = 204;
+	//ë²„ê±°íŒŒí¬
+	store[34].position = 129;
 	strcpy(store[34].url, "http://www.burgerpark.co.kr/");
-	strcpy(store[34].name, "¹ö°ÅÆÄÅ©");
+	strcpy(store[34].name, "ë²„ê±°íŒŒí¬");
 	store[34].price = 15000;
 	store[34].type = 0;
 	store[34].type_eat = 4;
 	store[34].store_to_pos_dist = 255;
-	store[34].second_near = 205;
+	store[34].second_near = 128;
 	store[34].store_to_sec_dist = 288;
 
-	//Ä¿ÇÉ±×·ç³ª·ç
-	store[35].position = 204;
+	//ì»¤í•€ê·¸ë£¨ë‚˜ë£¨
+	store[35].position = 129;
 	strcpy(store[35].url, "X");
-	strcpy(store[35].name, "Ä¿ÇÉ±×·ç³ª·ç");
+	strcpy(store[35].name, "ì»¤í•€ê·¸ë£¨ë‚˜ë£¨");
 	store[35].price = 5000;
 	store[35].type = 3;
 	store[35].type_eat = 0;
 	store[35].store_to_pos_dist = 179;
-	store[35].second_near = 205;
+	store[35].second_near = 128;
 	store[35].store_to_sec_dist = 301;
 
-	//CU ´ëÇĞ·Î±¤ÀåÁ¡
-	store[36].position = 204;
+	//CU ëŒ€í•™ë¡œê´‘ì¥ì 
+	store[36].position = 129;
 	strcpy(store[36].url, "X");
-	strcpy(store[36].name, "CU ´ëÇĞ·Î±¤ÀåÁ¡");
+	strcpy(store[36].name, "CU ëŒ€í•™ë¡œê´‘ì¥ì ");
 	store[36].price = 0;
 	store[36].type = 2;
 	store[36].type_eat = 0;
 	store[36].store_to_pos_dist = 220;
-	store[36].second_near = 205;
+	store[36].second_near = 128;
 	store[36].store_to_sec_dist = 356;
 
-	//»õ¸¶À»½Ä´ç
-	store[37].position = 204;
+	//ìƒˆë§ˆì„ì‹ë‹¹
+	store[37].position = 129;
 	strcpy(store[37].url, "http://newmaul.com");
-	strcpy(store[37].name, "»õ¸¶À»½Ä´ç");
+	strcpy(store[37].name, "ìƒˆë§ˆì„ì‹ë‹¹");
 	store[37].price = 10000;
 	store[37].type = 0;
 	store[37].type_eat = 5;
 	store[37].store_to_pos_dist = 204;
-	store[37].second_near = 205;
+	store[37].second_near = 128;
 	store[37].store_to_sec_dist = 303;
 
-	//ÆÄ¶û»õ¾à±¹
-	store[38].position = 204;
+	//íŒŒë‘ìƒˆì•½êµ­
+	store[38].position = 129;
 	strcpy(store[38].url, "X");
-	strcpy(store[38].name, "ÆÄ¶û»õ¾à±¹");
+	strcpy(store[38].name, "íŒŒë‘ìƒˆì•½êµ­");
 	store[38].price = 0;
 	store[38].type = 1;
 	store[38].type_eat = 0;
 	store[38].store_to_pos_dist = 221;
-	store[38].second_near = 205;
+	store[38].second_near = 128;
 	store[38].store_to_sec_dist = 357;
 
-	//¼­¿ïÀ§µåÆÊ¾à±¹
-	store[39].position = 204;
+	//ì„œìš¸ìœ„ë“œíŒœì•½êµ­
+	store[39].position = 129;
 	strcpy(store[39].url, "X");
-	strcpy(store[39].name, "¼­¿ïÀ§µåÆÊ¾à±¹");
+	strcpy(store[39].name, "ì„œìš¸ìœ„ë“œíŒœì•½êµ­");
 	store[39].price = 0;
 	store[39].type = 1;
 	store[39].type_eat = 0;
 	store[39].store_to_pos_dist = 234;
-	store[39].second_near = 205;
+	store[39].second_near = 128;
 	store[39].store_to_sec_dist = 370;
 
-	//-----------------------´ë¸í°Å¸®----------------------
+	//--------------------ëŒ€ëª…ê±°ë¦¬----------------------
 
-	//±è°¡³×
-	store[40].position = 205;
+	//ê¹€ê°€ë„¤
+	store[40].position = 128;
 	strcpy(store[40].url, "http://www.gimgane.co.kr");
-	strcpy(store[40].name, "±è°¡³×");
+	strcpy(store[40].name, "ê¹€ê°€ë„¤");
 	store[40].price = 8000;
 	store[40].type = 0;
 	store[40].type_eat = 1;
 	store[40].store_to_pos_dist = 45;
-	store[40].second_near = 204;
+	store[40].second_near = 129;
 	store[40].store_to_sec_dist = 218;
 
-	//½º½Ã»ç¼Ò¿ì
-	store[41].position = 205;
+	//ìŠ¤ì‹œì‚¬ì†Œìš°
+	store[41].position = 128;
 	strcpy(store[41].url, "X");
-	strcpy(store[41].name, "½º½Ã»ç¼Ò¿ì");
+	strcpy(store[41].name, "ìŠ¤ì‹œì‚¬ì†Œìš°");
 	store[41].price = 15000;
 	store[41].type = 0;
 	store[41].type_eat = 2;
 	store[41].store_to_pos_dist = 45;
-	store[41].second_near = 204;
+	store[41].second_near = 129;
 	store[41].store_to_sec_dist = 218;
 
-	//Å·½ººóÄ¿ÇÇ
-	store[42].position = 205;
+	//í‚¹ìŠ¤ë¹ˆì»¤í”¼
+	store[42].position = 128;
 	strcpy(store[42].url, "X");
-	strcpy(store[42].name, "Å·½ººóÄ¿ÇÇ");
+	strcpy(store[42].name, "í‚¹ìŠ¤ë¹ˆì»¤í”¼");
 	store[42].price = 5000;
 	store[42].type = 3;
 	store[42].type_eat = 0;
 	store[42].store_to_pos_dist = 27;
-	store[42].second_near = 204;
+	store[42].second_near = 129;
 	store[42].store_to_sec_dist = 264;
 
-	//³»Âò´ß
-	store[43].position = 205;
+	//ë‚´ì°œë‹­
+	store[43].position = 128;
 	strcpy(store[43].url, "X");
-	strcpy(store[43].name, "³»Âò´ß");
+	strcpy(store[43].name, "ë‚´ì°œë‹­");
 	store[43].price = 15000;
 	store[43].type = 0;
 	store[43].type_eat = 6;
 	store[43].store_to_pos_dist = 41;
-	store[43].second_near = 204;
+	store[43].second_near = 129;
 	store[43].store_to_sec_dist = 203;
 
-	//³îºÎºÎ´ëÂî°³
-	store[44].position = 205;
+	//ë†€ë¶€ë¶€ëŒ€ì°Œê°œ
+	store[44].position = 128;
 	strcpy(store[44].url, "https://www.nolboo.co.kr/pages/business/brand_boodae.asp");
-	strcpy(store[44].name, "³îºÎºÎ´ëÂî°³");
+	strcpy(store[44].name, "ë†€ë¶€ë¶€ëŒ€ì°Œê°œ");
 	store[44].price = 10000;
 	store[44].type = 0;
 	store[44].type_eat = 1;
 	store[44].store_to_pos_dist = 60;
-	store[44].second_near = 204;
+	store[44].second_near = 129;
 	store[44].store_to_sec_dist = 203;
 
-	//ÇÁ·çÃ÷
-	store[45].position = 205;
+	//í”„ë£¨ì¸ 
+	store[45].position = 128;
 	strcpy(store[45].url, "X");
-	strcpy(store[45].name, "ÇÁ·çÃ÷");
+	strcpy(store[45].name, "í”„ë£¨ì¸ ");
 	store[45].price = 10000;
 	store[45].type = 0;
 	store[45].type_eat = 7;
 	store[45].store_to_pos_dist = 63;
-	store[45].second_near = 204;
+	store[45].second_near = 129;
 	store[45].store_to_sec_dist = 181;
 
-	//½ÄÅ¹ÀÇ¸ñÀû
-	store[46].position = 205;
+	//ì‹íƒì˜ëª©ì 
+	store[46].position = 128;
 	strcpy(store[46].url, "X");
-	strcpy(store[46].name, "½ÄÅ¹ÀÇ¸ñÀû");
+	strcpy(store[46].name, "ì‹íƒì˜ëª©ì ");
 	store[46].price = 8000;
 	store[46].type = 0;
 	store[46].type_eat = 1;
 	store[46].store_to_pos_dist = 120;
-	store[46].second_near = 204;
+	store[46].second_near = 129;
 	store[46].store_to_sec_dist = 172;
 
-	//ÇÃ¶óÀ×º¼ÀÍ½ºÇÁ·¹½º
-	store[47].position = 205;
+	//í”Œë¼ì‰ë³¼ìµìŠ¤í”„ë ˆìŠ¤
+	store[47].position = 128;
 	strcpy(store[47].url, "http://flyingbowlexpress.com/");
-	strcpy(store[47].name, "ÇÃ¶óÀ×º¼ÀÍ½ºÇÁ·¹½º");
+	strcpy(store[47].name, "í”Œë¼ì‰ë³¼ìµìŠ¤í”„ë ˆìŠ¤");
 	store[47].price = 8000;
 	store[47].type = 0;
 	store[47].type_eat = 4;
 	store[47].store_to_pos_dist = 146;
-	store[47].second_near = 204;
+	store[47].second_near = 129;
 	store[47].store_to_sec_dist = 146;
 
-	//»êÂÉ¸Ş
-	store[48].position = 205;
+	//ì‚°ìª¼ë©”
+	store[48].position = 128;
 	strcpy(store[48].url, "http://sanchome.co.kr");
-	strcpy(store[48].name, "»êÂÉ¸Ş");
+	strcpy(store[48].name, "ì‚°ìª¼ë©”");
 	store[48].price = 8000;
 	store[48].type = 0;
 	store[48].type_eat = 2;
 	store[48].store_to_pos_dist = 146;
-	store[48].second_near = 204;
+	store[48].second_near = 129;
 	store[48].store_to_sec_dist = 146;
 
-	//À°È¸ÇÑ¿¬¾î
-	store[49].position = 205;
+	//ìœ¡íšŒí•œì—°ì–´
+	store[49].position = 128;
 	strcpy(store[49].url, "http://www.happysalmon.co.kr/");
-	strcpy(store[49].name, "À°È¸ÇÑ¿¬¾î");
+	strcpy(store[49].name, "ìœ¡íšŒí•œì—°ì–´");
 	store[49].price = 15000;
 	store[49].type = 0;
 	store[49].type_eat = 5;
 	store[49].store_to_pos_dist = 113;
-	store[49].second_near = 204;
+	store[49].second_near = 129;
 	store[49].store_to_sec_dist = 179;
 
-	//ÇıÈ­¼ö¾à±¹
-	store[50].position = 204;
+	//í˜œí™”ìˆ˜ì•½êµ­
+	store[50].position = 129;
 	strcpy(store[50].url, "X");
-	strcpy(store[50].name, "ÇıÈ­¼ö¾à±¹");
+	strcpy(store[50].name, "í˜œí™”ìˆ˜ì•½êµ­");
 	store[50].price = 0;
 	store[50].type = 1;
 	store[50].type_eat = 0;
 	store[50].store_to_pos_dist = 139;
-	store[50].second_near = 205;
+	store[50].second_near = 128;
 	store[50].store_to_sec_dist = 159;
 
-	//µµÄì½ºÅ×ÀÌÅ©
-	store[51].position = 204;
+	//ë„ì¿„ìŠ¤í…Œì´í¬
+	store[51].position = 129;
 	strcpy(store[51].url, "http://tokyosteak.co.kr");
-	strcpy(store[51].name, "µµÄì½ºÅ×ÀÌÅ©");
+	strcpy(store[51].name, "ë„ì¿„ìŠ¤í…Œì´í¬");
 	store[51].price = 10000;
 	store[51].type = 0;
 	store[51].type_eat = 2;
 	store[51].store_to_pos_dist = 145;
-	store[51].second_near = 205;
+	store[51].second_near = 128;
 	store[51].store_to_sec_dist = 177;
 
-	//ÇÏ·ç°¡
-	store[52].position = 205;
+	//í•˜ë£¨ê°€
+	store[52].position = 128;
 	strcpy(store[52].url, "X");
-	strcpy(store[52].name, "ÇÏ·ç°¡");
+	strcpy(store[52].name, "í•˜ë£¨ê°€");
 	store[52].price = 10000;
 	store[52].type = 0;
 	store[52].type_eat = 7;
 	store[52].store_to_pos_dist = 132;
-	store[52].second_near = 204;
+	store[52].second_near = 129;
 	store[52].store_to_sec_dist = 145;
 
-	//È¥Ä«Ã÷
-	store[53].position = 204;
+	//í˜¼ì¹´ì¸ 
+	store[53].position = 129;
 	strcpy(store[53].url, "X");
-	strcpy(store[53].name, "È¥Ä«Ã÷");
+	strcpy(store[53].name, "í˜¼ì¹´ì¸ ");
 	store[53].price = 10000;
 	store[53].type = 0;
 	store[53].type_eat = 2;
 	store[53].store_to_pos_dist = 103;
-	store[53].second_near = 205;
+	store[53].second_near = 128;
 	store[53].store_to_sec_dist = 195;
 
-	//¾ûÅÍ¸®»ı°í±â
-	store[54].position = 204;
+	//ì—‰í„°ë¦¬ìƒê³ ê¸°
+	store[54].position = 129;
 	strcpy(store[54].url, "X");
-	strcpy(store[54].name, "¾ûÅÍ¸®»ı°í±â");
+	strcpy(store[54].name, "ì—‰í„°ë¦¬ìƒê³ ê¸°");
 	store[54].price = 10000;
 	store[54].type = 0;
 	store[54].type_eat = 5;
 	store[54].store_to_pos_dist = 93;
-	store[54].second_near = 205;
+	store[54].second_near = 128;
 	store[54].store_to_sec_dist = 206;
 
-	//È«Äá¹İÁ¡
-	store[108].position = 204;
+	//í™ì½©ë°˜ì 
+	store[108].position = 129;
 	strcpy(store[108].url, "http://www.theborn.co.kr/theborn_brand/zzambbong");
-	strcpy(store[108].name, "È«Äá¹İÁ¡");
+	strcpy(store[108].name, "í™ì½©ë°˜ì ");
 	store[108].price = 5000;
 	store[108].type = 0;
 	store[108].type_eat = 3;
 	store[108].store_to_pos_dist = 90;
-	store[108].second_near = 205;
+	store[108].second_near = 128;
 	store[108].store_to_sec_dist = 208;
 
-	//¼­ÇÇµ¿ÆÄ
-	store[109].position = 204;
+	//ì„œí”¼ë™íŒŒ
+	store[109].position = 129;
 	strcpy(store[109].url, "X");
-	strcpy(store[109].name, "¼­ÇÇµ¿ÆÄ");
+	strcpy(store[109].name, "ì„œí”¼ë™íŒŒ");
 	store[109].price = 10000;
 	store[109].type = 0;
 	store[109].type_eat = 7;
 	store[109].store_to_pos_dist = 173;
-	store[109].second_near = 205;
+	store[109].second_near = 128;
 	store[109].store_to_sec_dist = 198;
 
-	//CU´ëÇĞ·Î2È£Á¡
-	store[110].position = 204;
+	//CUëŒ€í•™ë¡œ2í˜¸ì 
+	store[110].position = 129;
 	strcpy(store[110].url, "X");
-	strcpy(store[110].name, "CU´ëÇĞ·Î2È£Á¡");
+	strcpy(store[110].name, "CUëŒ€í•™ë¡œ2í˜¸ì ");
 	store[110].price = 0;
 	store[110].type = 2;
 	store[110].type_eat = 0;
 	store[110].store_to_pos_dist = 99;
-	store[110].second_near = 205;
+	store[110].second_near = 128;
 	store[110].store_to_sec_dist = 210;
 
-	//¸¾½ºÅÍÄ¡
-	store[111].position = 204;
+	//ë§˜ìŠ¤í„°ì¹˜
+	store[111].position = 129;
 	strcpy(store[111].url, "http://www.momstouch.co.kr");
-	strcpy(store[111].name, "¸¾½ºÅÍÄ¡");
+	strcpy(store[111].name, "ë§˜ìŠ¤í„°ì¹˜");
 	store[111].price = 8000;
 	store[111].type = 0;
 	store[111].type_eat = 7;
 	store[111].store_to_pos_dist = 103;
-	store[111].second_near = 205;
+	store[111].second_near = 128;
 	store[111].store_to_sec_dist = 214;
 
-	//¸¶³àÁÖ¹æ
-	store[112].position = 204;
+	//ë§ˆë…€ì£¼ë°©
+	store[112].position = 129;
 	strcpy(store[112].url, "https://witchskitchen.co.kr");
-	strcpy(store[112].name, "¸¶³àÁÖ¹æ");
+	strcpy(store[112].name, "ë§ˆë…€ì£¼ë°©");
 	store[112].price = 20000;
 	store[112].type = 0;
 	store[112].type_eat = 4;
 	store[112].store_to_pos_dist = 85;
-	store[112].second_near = 205;
+	store[112].second_near = 128;
 	store[112].store_to_sec_dist = 233;
 
-	//ÅëÅ«°¥ºñ
-	store[113].position = 204;
-	strcpy(store[113].url, "http://www.ÅëÅ«°¥ºñ.com");
-	strcpy(store[113].name, "ÅëÅ«°¥ºñ");
+	//í†µí°ê°ˆë¹„
+	store[113].position = 129;
+	strcpy(store[113].url, "http://www.í†µí°ê°ˆë¹„.com");
+	strcpy(store[113].name, "í†µí°ê°ˆë¹„");
 	store[113].price = 12000;
 	store[113].type = 0;
 	store[113].type_eat = 5;
 	store[113].store_to_pos_dist = 114;
-	store[113].second_near = 205;
+	store[113].second_near = 128;
 	store[113].store_to_sec_dist = 243;
 
-	//²¿²¿¾ÆÂî
-	store[114].position = 204;
+	//ê¼¬ê¼¬ì•„ì°Œ
+	store[114].position = 129;
 	strcpy(store[114].url, "X");
-	strcpy(store[114].name, "²¿²¿¾ÆÂî");
+	strcpy(store[114].name, "ê¼¬ê¼¬ì•„ì°Œ");
 	store[114].price = 20000;
 	store[114].type = 0;
 	store[114].type_eat = 6;
 	store[114].store_to_pos_dist = 83;
-	store[114].second_near = 205;
+	store[114].second_near = 128;
 	store[114].store_to_sec_dist = 256;
 
-	//ÇÒ¸®½ºÄ¿ÇÇ
-	store[115].position = 204;
+	//í• ë¦¬ìŠ¤ì»¤í”¼
+	store[115].position = 129;
 	strcpy(store[115].url, "http://www.hollys.co.kr");
-	strcpy(store[115].name, "ÇÒ¸®½ºÄ¿ÇÇ");
+	strcpy(store[115].name, "í• ë¦¬ìŠ¤ì»¤í”¼");
 	store[115].price = 5000;
 	store[115].type = 3;
 	store[115].type_eat = 0;
 	store[115].store_to_pos_dist = 21;
-	store[115].second_near = 205;
+	store[115].second_near = 128;
 	store[115].store_to_sec_dist = 278;
 
-	//GS25ÇıÈ­´ë¸íÁ¡
-	store[116].position = 204;
+	//GS25í˜œí™”ëŒ€ëª…ì 
+	store[116].position = 129;
 	strcpy(store[116].url, "X");
-	strcpy(store[116].name, "GS25ÇıÈ­´ë¸íÁ¡");
+	strcpy(store[116].name, "GS25í˜œí™”ëŒ€ëª…ì ");
 	store[116].price = 0;
 	store[116].type = 2;
 	store[116].type_eat = 0;
 	store[116].store_to_pos_dist = 77;
-	store[116].second_near = 205;
+	store[116].second_near = 128;
 	store[116].store_to_sec_dist = 277;
 
-	//³ë¶ûÅë´ß
-	store[117].position = 204;
+	//ë…¸ë‘í†µë‹­
+	store[117].position = 129;
 	strcpy(store[117].url, "https://norangtongdak.co.kr/");
-	strcpy(store[117].name, "³ë¶ûÅë´ß");
+	strcpy(store[117].name, "ë…¸ë‘í†µë‹­");
 	store[117].price = 15000;
 	store[117].type = 0;
 	store[117].type_eat = 6;
 	store[117].store_to_pos_dist = 84;
-	store[117].second_near = 205;
+	store[117].second_near = 128;
 	store[117].store_to_sec_dist = 279;
 
-	//µ¿³×¾ÆÀú¾¾Ä¡Å²
-	store[118].position = 204;
+	//ë™ë„¤ì•„ì €ì”¨ì¹˜í‚¨
+	store[118].position = 129;
 	strcpy(store[118].url, "X");
-	strcpy(store[118].name, "µ¿³×¾ÆÀú¾¾Ä¡Å²");
+	strcpy(store[118].name, "ë™ë„¤ì•„ì €ì”¨ì¹˜í‚¨");
 	store[118].price = 25000;
 	store[118].type = 0;
 	store[118].type_eat = 6;
 	store[118].store_to_pos_dist = 92;
-	store[118].second_near = 205;
+	store[118].second_near = 128;
 	store[118].store_to_sec_dist = 288;
 
-	//---------------------ÂÊ¹®--------------------------
+	//-------------------ìª½ë¬¸------------------------
 
-	store[57].position = 202;
+	store[57].position = 126;
 	strcpy(store[57].url, "X");
-	strcpy(store[57].name, "¹äÀº");
+	strcpy(store[57].name, "ë°¥ì€");
 	store[57].price = 5000;
 	store[57].type = 0;
 	store[57].type_eat = 1;
 	store[57].store_to_pos_dist = 89;
-	store[57].second_near = 200;
+	store[57].second_near = 122;
 	store[57].store_to_sec_dist = 475;
 
-	store[56].position = 202;
+	store[56].position = 126;
 	strcpy(store[56].url, "X");
-	strcpy(store[56].name, "ÈÄÄíÈÄÄí");
+	strcpy(store[56].name, "í›„ì¿ í›„ì¿ ");
 	store[56].price = 8000;
 	store[56].type = 0;
 	store[56].type_eat = 2;
 	store[56].store_to_pos_dist = 90;
-	store[56].second_near = 200;
+	store[56].second_near = 122;
 	store[56].store_to_sec_dist = 476;
 
-	store[66].position = 202;
+	store[66].position = 126;
 	strcpy(store[66].url, "X");
-	strcpy(store[66].name, "ÃµÇÏÁ¦ÀÏÅÁ¼öÀ°");
+	strcpy(store[66].name, "ì²œí•˜ì œì¼íƒ•ìˆ˜ìœ¡");
 	store[66].price = 5000;
 	store[66].type = 0;
 	store[66].type_eat = 7;
 	store[66].store_to_pos_dist = 182;
-	store[66].second_near = 201;
+	store[66].second_near = 123;
 	store[66].store_to_sec_dist = 609;
 
-	store[55].position = 202;
+	store[55].position = 126;
 	strcpy(store[55].url, "X");
-	strcpy(store[55].name, "ÈÄ¶óÀÌÆÒ");
+	strcpy(store[55].name, "í›„ë¼ì´íŒ¬");
 	store[55].price = 8000;
 	store[55].type = 0;
 	store[55].type_eat = 7;
 	store[55].store_to_pos_dist = 40;
-	store[55].second_near = 200;
+	store[55].second_near = 122;
 	store[55].store_to_sec_dist = 426;
 
-	store[58].position = 202;
+	store[58].position = 126;
 	strcpy(store[58].url, "X");
-	strcpy(store[58].name, "¼îÅ¸µ·ºÎ¸®");
+	strcpy(store[58].name, "ì‡¼íƒ€ëˆë¶€ë¦¬");
 	store[58].price = 8000;
 	store[58].type = 0;
 	store[58].type_eat = 2;
@@ -812,447 +813,447 @@ void setStoreInfo(Node store[]) {
 	store[58].store_to_sec_dist = 505;
 
 
-	store[59].position = 202;
+	store[59].position = 126;
 	strcpy(store[59].url, "X");
-	strcpy(store[59].name, "Ã»ÃáÁ÷È­");
+	strcpy(store[59].name, "ì²­ì¶˜ì§í™”");
 	store[59].price = 8000;
 	store[59].type = 0;
 	store[59].type_eat = 1;
 	store[59].store_to_pos_dist = 118;
-	store[59].second_near = 200;
+	store[59].second_near = 122;
 	store[59].store_to_sec_dist = 501;
 
-	store[61].position = 202;
+	store[61].position = 125;
 	strcpy(store[61].url, "X");
-	strcpy(store[61].name, "¿ìº¸Àå");
+	strcpy(store[61].name, "ìš°ë³´ì¥");
 	store[61].price = 8000;
 	store[61].type = 0;
 	store[61].type_eat = 3;
 	store[61].store_to_pos_dist = 240;
-	store[61].second_near = 201;
+	store[61].second_near = 123;
 	store[61].store_to_sec_dist = 661;
 
-	store[60].position = 202;
+	store[60].position = 126;
 	strcpy(store[60].url, "X");
-	strcpy(store[60].name, "¼­ÆÛÇÇÀÚ");
+	strcpy(store[60].name, "ì„œí¼í”¼ì");
 	store[60].price = 10000;
 	store[60].type = 0;
 	store[60].type_eat = 4;
 	store[60].store_to_pos_dist = 86;
-	store[60].second_near = 200;
+	store[60].second_near = 122;
 	store[60].store_to_sec_dist = 469;
 
-	store[62].position = 202;
+	store[62].position = 126;
 	strcpy(store[62].url, "www.bongousse.net/main.aspx");
-	strcpy(store[62].name, "ºÀ±¸½º¹ä¹ö°Å");
+	strcpy(store[62].name, "ë´‰êµ¬ìŠ¤ë°¥ë²„ê±°");
 	store[62].price = 5000;
 	store[62].type = 0;
 	store[62].type_eat = 1;
 	store[62].store_to_pos_dist = 150;
-	store[62].second_near = 201;
+	store[62].second_near = 123;
 	store[62].store_to_sec_dist = 654;
 
-	store[64].position = 202;
+	store[64].position = 126;
 	strcpy(store[64].url, "X");
-	strcpy(store[64].name, "´õ´ß");
+	strcpy(store[64].name, "ë”ë‹­");
 	store[64].price = 8000;
 	store[64].type = 0;
 	store[64].type_eat = 6;
 	store[64].store_to_pos_dist = 223;
-	store[64].second_near = 201;
+	store[64].second_near = 123;
 	store[64].store_to_sec_dist = 644;
 
-	store[63].position = 202;
+	store[63].position = 126;
 	strcpy(store[63].url, "X");
-	strcpy(store[63].name, "¸ó½ºÅÍºÎ¸®¶Ç");
+	strcpy(store[63].name, "ëª¬ìŠ¤í„°ë¶€ë¦¬ë˜");
 	store[63].price = 5000;
 	store[63].type = 0;
 	store[63].type_eat = 7;
 	store[63].store_to_pos_dist = 91;
-	store[63].second_near = 200;
+	store[63].second_near = 122;
 	store[63].store_to_sec_dist = 474;
 
-	store[65].position = 202;
+	store[65].position = 126;
 	strcpy(store[65].url, "X");
-	strcpy(store[65].name, "µ·¾Ø±î");
+	strcpy(store[65].name, "ëˆì•¤ê¹Œ");
 	store[65].price = 8000;
 	store[65].type = 0;
 	store[65].type_eat = 2;
 	store[65].store_to_pos_dist = 99;
-	store[65].second_near = 200;
+	store[65].second_near = 122;
 	store[65].store_to_sec_dist = 483;
 
-	store[71].position = 202;
+	store[71].position = 126;
 	strcpy(store[71].url, "https://www.facebook.com/koffisix");
-	strcpy(store[71].name, "Áê½º½Ä½º");
+	strcpy(store[71].name, "ì¥¬ìŠ¤ì‹ìŠ¤");
 	store[71].price = 5000;
 	store[71].type = 3;
 	store[71].type_eat = 0;
 	store[71].store_to_pos_dist = 139;
-	store[71].second_near = 201;
+	store[71].second_near = 123;
 	store[71].store_to_sec_dist = 560;
 
-	store[70].position = 202;
+	store[70].position = 126;
 	strcpy(store[70].url, "https://www.emart24.co.kr");
-	strcpy(store[70].name, "ÀÌ¸¶Æ®24ÆíÀÇÁ¡");
+	strcpy(store[70].name, "ì´ë§ˆíŠ¸24í¸ì˜ì ");
 	store[70].price = 0;
 	store[70].type = 2;
 	store[70].type_eat = 0;
 	store[70].store_to_pos_dist = 120;
-	store[70].second_near = 200;
+	store[70].second_near = 122;
 	store[70].store_to_sec_dist = 502;
 
-	store[72].position = 202;
+	store[72].position = 126;
 	strcpy(store[72].url, "gs25.gsretail.com");
-	strcpy(store[72].name, "GS25¸í·û¼º´ëÁ¡");
+	strcpy(store[72].name, "GS25ëª…ë¥œì„±ëŒ€ì ");
 	store[72].price = 0;
 	store[72].type = 2;
 	store[72].type_eat = 0;
 	store[72].store_to_pos_dist = 298;
-	store[72].second_near = 203;
+	store[72].second_near = 127;
 	store[72].store_to_sec_dist = 367;
 
-	store[69].position = 202;
+	store[69].position = 126;
 	strcpy(store[69].url, "X");
-	strcpy(store[69].name, "Å¾ÇÒÀÎ¸¶Æ®");
+	strcpy(store[69].name, "íƒ‘í• ì¸ë§ˆíŠ¸");
 	store[69].price = 0;
 	store[69].type = 2;
 	store[69].type_eat = 0;
 	store[69].store_to_pos_dist = 253;
-	store[69].second_near = 203;
+	store[69].second_near = 127;
 	store[69].store_to_sec_dist = 401;
 
-	store[67].position = 202;
+	store[67].position = 126;
 	strcpy(store[67].url, "X");
-	strcpy(store[67].name, "º¸¼º¾à±¹");
+	strcpy(store[67].name, "ë³´ì„±ì•½êµ­");
 	store[67].price = 0;
 	store[67].type = 1;
 	store[67].type_eat = 0;
 	store[67].store_to_pos_dist = 182;
-	store[67].second_near = 201;
+	store[67].second_near = 123;
 	store[67].store_to_sec_dist = 565;
 
-	store[68].position = 202;
+	store[68].position = 126;
 	strcpy(store[68].url, "X");
-	strcpy(store[68].name, "¸í·û½ÃÀå¾à±¹");
+	strcpy(store[68].name, "ëª…ë¥œì‹œì¥ì•½êµ­");
 	store[68].price = 0;
 	store[68].type = 1;
 	store[68].type_eat = 0;
 	store[68].store_to_pos_dist = 320;
-	store[68].second_near = 203;
+	store[68].second_near = 127;
 	store[68].store_to_sec_dist = 374;
 
 
 
 
-	//----------------Á¤¹®----------------------
-	store[87].position = 203;
+	//----------------ì •ë¬¸------------------------
+	store[87].position = 127;
 	strcpy(store[87].url, "www.cknia.com");
-	strcpy(store[87].name, "Ä¡Å²¸Å´Ï¾Æ");
+	strcpy(store[87].name, "ì¹˜í‚¨ë§¤ë‹ˆì•„");
 	store[87].price = 15000;
 	store[87].type = 0;
 	store[87].type_eat = 6;
 	store[87].store_to_pos_dist = 132;
-	store[87].second_near = 202;
+	store[87].second_near = 126;
 	store[87].store_to_sec_dist = 536;
 
-	store[88].position = 203;
+	store[88].position = 127;
 	strcpy(store[88].url, "X");
-	strcpy(store[88].name, "¸íÂŞ3");
+	strcpy(store[88].name, "ëª…ì­ˆ3");
 	store[88].price = 15000;
 	store[88].type = 0;
 	store[88].type_eat = 1;
 	store[88].store_to_pos_dist = 377;
-	store[88].second_near = 203;
+	store[88].second_near = 127;
 	store[88].store_to_sec_dist = 947;
 
-	store[74].position = 203;
+	store[74].position = 127;
 	strcpy(store[74].url, "X");
-	strcpy(store[74].name, "È«°öÃ¢");
+	strcpy(store[74].name, "í™ê³±ì°½");
 	store[74].price = 15000;
 	store[74].type = 0;
 	store[74].type_eat = 5;
 	store[74].store_to_pos_dist = 137;
-	store[74].second_near = 205;
+	store[74].second_near = 128;
 	store[74].store_to_sec_dist = 236;
 
-	store[104].position = 203;
+	store[104].position = 127;
 	strcpy(store[104].url, "sinjeon.co.kr");
-	strcpy(store[104].name, "½ÅÀü¶±ººÀÌ");
+	strcpy(store[104].name, "ì‹ ì „ë–¡ë³¶ì´");
 	store[104].price = 5000;
 	store[104].type = 0;
 	store[104].type_eat = 7;
 	store[104].store_to_pos_dist = 116;
-	store[104].second_near = 205;
+	store[104].second_near = 128;
 	store[104].store_to_sec_dist = 169;
 
-	store[73].position = 203;
+	store[73].position = 127;
 	strcpy(store[73].url, "X");
-	strcpy(store[73].name, "Æ÷º¸");
+	strcpy(store[73].name, "í¬ë³´");
 	store[73].price = 8000;
 	store[73].type = 0;
 	store[73].type_eat = 7;
 	store[73].store_to_pos_dist = 265;
-	store[73].second_near = 205;
+	store[73].second_near = 128;
 	store[73].store_to_sec_dist = 34;
 
-	store[80].position = 203;
+	store[80].position = 127;
 	strcpy(store[80].url, "X");
-	strcpy(store[80].name, "È­·Î»óÈ¸");
+	strcpy(store[80].name, "í™”ë¡œìƒíšŒ");
 	store[80].price = 15000;
 	store[80].type = 0;
 	store[80].type_eat = 5;
 	store[80].store_to_pos_dist = 134;
-	store[80].second_near = 205;
+	store[80].second_near = 128;
 	store[80].store_to_sec_dist = 206;
 
-	store[78].position = 203;
+	store[78].position = 127;
 	strcpy(store[78].url, "X");
-	strcpy(store[78].name, "692°í±âÆ÷Â÷");
+	strcpy(store[78].name, "692ê³ ê¸°í¬ì°¨");
 	store[78].price = 20000;
 	store[78].type = 0;
 	store[78].type_eat = 5;
 	store[78].store_to_pos_dist = 202;
-	store[78].second_near = 205;
+	store[78].second_near = 128;
 	store[78].store_to_sec_dist = 132;
 
-	store[77].position = 203;
+	store[77].position = 127;
 	strcpy(store[77].url, "http://www.ssaum.co.kr/");
-	strcpy(store[77].name, "½Î¿òÀÇ°í¼ö");
+	strcpy(store[77].name, "ì‹¸ì›€ì˜ê³ ìˆ˜");
 	store[77].price = 10000;
 	store[77].type = 0;
 	store[77].type_eat = 5;
 	store[77].store_to_pos_dist = 116;
-	store[77].second_near = 205;
+	store[77].second_near = 128;
 	store[77].store_to_sec_dist = 169;
 
-	store[107].position = 203;
+	store[107].position = 127;
 	strcpy(store[107].url, "www.mcdonalds.co.kr");
-	strcpy(store[107].name, "¸Æµµ³¯µå");
+	strcpy(store[107].name, "ë§¥ë„ë‚ ë“œ");
 	store[107].price = 8000;
 	store[107].type = 0;
 	store[107].type_eat = 7;
-	store[107].store_to_pos_dist = 205;
+	store[107].store_to_pos_dist = 128;
 	store[107].second_near = 314;
 	store[107].store_to_sec_dist = 48;
 
-	store[106].position = 203;
+	store[106].position = 127;
 	strcpy(store[106].url, "pizzaschool.net");
-	strcpy(store[106].name, "ÇÇÀÚ½ºÄğ");
+	strcpy(store[106].name, "í”¼ììŠ¤ì¿¨");
 	store[106].price = 8000;
 	store[106].type = 0;
 	store[106].type_eat = 4;
 	store[106].store_to_pos_dist = 143;
-	store[106].second_near = 205;
+	store[106].second_near = 128;
 	store[106].store_to_sec_dist = 156;
 
-	store[103].position = 203;
+	store[103].position = 127;
 	strcpy(store[103].url, "X");
-	strcpy(store[103].name, "³ª´©¹Ì");
+	strcpy(store[103].name, "ë‚˜ëˆ„ë¯¸");
 	store[103].price = 5000;
 	store[103].type = 0;
 	store[103].type_eat = 1;
 	store[103].store_to_pos_dist = 179;
-	store[103].second_near = 205;
+	store[103].second_near = 128;
 	store[103].store_to_sec_dist = 94;
 
-	store[85].position = 203;
+	store[85].position = 127;
 	strcpy(store[85].url, "X");
-	strcpy(store[85].name, "¸í·û¿Õ¸¸µÎ");
+	strcpy(store[85].name, "ëª…ë¥œì™•ë§Œë‘");
 	store[85].price = 5000;
 	store[85].type = 0;
 	store[85].type_eat = 7;
 	store[85].store_to_pos_dist = 257;
-	store[85].second_near = 205;
+	store[85].second_near = 128;
 	store[85].store_to_sec_dist = 54;
 
-	store[86].position = 203;
+	store[86].position = 127;
 	strcpy(store[86].url, "http://milsup.co.kr/");
-	strcpy(store[86].name, "¹Ğ½£");
+	strcpy(store[86].name, "ë°€ìˆ²");
 	store[86].price = 8000;
 	store[86].type = 0;
 	store[86].type_eat = 1;
 	store[86].store_to_pos_dist = 293;
-	store[86].second_near = 205;
+	store[86].second_near = 128;
 	store[86].store_to_sec_dist = 27;
 
-	store[81].position = 203;
+	store[81].position = 127;
 	strcpy(store[81].url, "X");
-	strcpy(store[81].name, "±â²Ù½º½Ã");
+	strcpy(store[81].name, "ê¸°ê¾¸ìŠ¤ì‹œ");
 	store[81].price = 15000;
 	store[81].type = 0;
 	store[81].type_eat = 2;
 	store[81].store_to_pos_dist = 265;
-	store[81].second_near = 205;
+	store[81].second_near = 128;
 	store[81].store_to_sec_dist = 34;
 
-	store[105].position = 203;
+	store[105].position = 127;
 	strcpy(store[105].url, "X");
-	strcpy(store[105].name, "ÃµÇâ·Ï");
+	strcpy(store[105].name, "ì²œí–¥ë¡");
 	store[105].price = 15000;
 	store[105].type = 0;
 	store[105].type_eat = 3;
 	store[105].store_to_pos_dist = 177;
-	store[105].second_near = 205;
+	store[105].second_near = 128;
 	store[105].store_to_sec_dist = 122;
 
-	store[82].position = 203;
+	store[82].position = 127;
 	strcpy(store[82].url, "http://www.ddingddong.co.kr/");
-	strcpy(store[82].name, "¶ò¶Ë¿ÍÇÃ");
+	strcpy(store[82].name, "ëµë˜¥ì™€í”Œ");
 	store[82].price = 5000;
 	store[82].type = 3;
 	store[82].type_eat = 0;
 	store[82].store_to_pos_dist = 181;
-	store[82].second_near = 205;
+	store[82].second_near = 128;
 	store[82].store_to_sec_dist = 92;
 
 
-	store[84].position = 203;
+	store[84].position = 127;
 	strcpy(store[84].url, "ediya.com");
-	strcpy(store[84].name, "ÀÌµğ¾ß");
+	strcpy(store[84].name , "ì´ë””ì•¼");
 	store[84].price = 5000;
 	store[84].type = 3;
 	store[84].type_eat = 0;
 	store[84].store_to_pos_dist = 237;
-	store[84].second_near = 205;
+	store[84].second_near = 128;
 	store[84].store_to_sec_dist = 86;
 
-	store[83].position = 203;
+	store[83].position = 127;
 	strcpy(store[83].url, "www.tomntoms.com");
-	strcpy(store[83].name, "Å½¾ØÅ½½º");
+	strcpy(store[83].name, "íƒì•¤íƒìŠ¤");
 	store[83].price = 5000;
 	store[83].type = 3;
 	store[83].type_eat = 0;
 	store[83].store_to_pos_dist = 339;
-	store[83].second_near = 205;
+	store[83].second_near = 128;
 	store[83].store_to_sec_dist = 67;
 
-	store[76].position = 203;
+	store[76].position = 127;
 	strcpy(store[76].url, "www.emart24.co.kr");
-	strcpy(store[76].name, "ÀÌ¸¶Æ®24");
+	strcpy(store[76].name, "ì´ë§ˆíŠ¸24");
 	store[76].price = 0;
 	store[76].type = 2;
 	store[76].type_eat = 0;
 	store[76].store_to_pos_dist = 175;
-	store[76].second_near = 205;
+	store[76].second_near = 128;
 	store[76].store_to_sec_dist = 116;
 
-	store[75].position = 203;
+	store[75].position = 127;
 	strcpy(store[75].url, "www.7-eleven.co.kr");
-	strcpy(store[75].name, "¼¼ºìÀÏ·¹ºì¼º´ëÁ¡");
+	strcpy(store[75].name, "ì„¸ë¸ì¼ë ˆë¸ì„±ëŒ€ì ");
 	store[75].price = 0;
 	store[75].type = 2;
 	store[75].type_eat = 0;
 	store[75].store_to_pos_dist = 123;
-	store[75].second_near = 205;
+	store[75].second_near = 128;
 	store[75].store_to_sec_dist = 207;
 
-	store[79].position = 203;
+	store[79].position = 127;
 	strcpy(store[79].url, "gs25.gsretail.com");
-	strcpy(store[79].name, "GS25¼º´ëÀÔ±¸Á¡");
+	strcpy(store[79].name, "GS25ì„±ëŒ€ì…êµ¬ì ");
 	store[79].price = 0;
 	store[79].type = 2;
 	store[79].type_eat = 0;
 	store[79].store_to_pos_dist = 265;
-	store[79].second_near = 205;
+	store[79].second_near = 128;
 	store[79].store_to_sec_dist = 8;
 
 
-	//-----------------------´ëÇĞ·Î----------------------------
+	//---------------------ëŒ€í•™ë¡œ----------------------------
 
-	store[89].position = 206;
+	store[89].position = 130;
 	strcpy(store[89].url, "http://abiko.kr/");
-	strcpy(store[89].name, "¾Æºñ²¿Ä«·¹");
+	strcpy(store[89].name, "ì•„ë¹„ê¼¬ì¹´ë ˆ");
 	store[89].price = 10000;
 	store[89].type = 0;
 	store[89].type_eat = 2;
 	store[89].store_to_pos_dist = 177;
-	store[89].second_near = 204;
+	store[89].second_near = 129;
 	store[89].store_to_sec_dist = 291;
 
-	store[90].position = 206;
+	store[90].position = 130;
 	strcpy(store[90].url, "http://www.cocoichibanya.co.kr/");
-	strcpy(store[90].name, "ÄÚÄÚÀÌÂî¹æ¾ß");
+	strcpy(store[90].name, "ì½”ì½”ì´ì°Œë°©ì•¼");
 	store[90].price = 10000;
 	store[90].type = 0;
 	store[90].type_eat = 2;
 	store[90].store_to_pos_dist = 110;
-	store[90].second_near = 204;
+	store[90].second_near = 129;
 	store[90].store_to_sec_dist = 198;
 
-	store[92].position = 206;
+	store[92].position = 130;
 	strcpy(store[92].url, "https://www.facebook.com/daepochicken");
-	strcpy(store[92].name, "´ëÆ÷Âò´ß");
+	strcpy(store[92].name, "ëŒ€í¬ì°œë‹­");
 	store[92].price = 15000;
 	store[92].type = 0;
 	store[92].type_eat = 6;
 	store[92].store_to_pos_dist = 303;
-	store[92].second_near = 204;
+	store[92].second_near = 129;
 	store[92].store_to_sec_dist = 383;
 
-	store[98].position = 206;
+	store[98].position = 130;
 	strcpy(store[98].url, "http://mpizzeriao.fordining.kr/");
-	strcpy(store[98].name, "ÇÍÁ¦¸®¾Æ¿À");
+	strcpy(store[98].name, "í•ì œë¦¬ì•„ì˜¤");
 	store[98].price = 20000;
 	store[98].type = 0;
 	store[98].type_eat = 4;
 	store[98].store_to_pos_dist = 516;
-	store[98].second_near = 204;
+	store[98].second_near = 129;
 	store[98].store_to_sec_dist = 633;
 
-	store[91].position = 206;
+	store[91].position = 130;
 	strcpy(store[91].url, "X");
-	strcpy(store[91].name, "³«»ê°¡µç");
+	strcpy(store[91].name, "ë‚™ì‚°ê°€ë“ ");
 	store[91].price = 20000;
 	store[91].type = 0;
 	store[91].type_eat = 5;
 	store[91].store_to_pos_dist = 49;
-	store[91].second_near = 204;
+	store[91].second_near = 129;
 	store[91].store_to_sec_dist = 172;
 
-	store[101].position = 206;
+	store[101].position = 130;
 	strcpy(store[101].url, "X");
-	strcpy(store[101].name, "¸®¾ó½ÃÄ«°íÇÇÀÚ");
+	strcpy(store[101].name, "ë¦¬ì–¼ì‹œì¹´ê³ í”¼ì");
 	store[101].price = 20000;
 	store[101].type = 0;
 	store[101].type_eat = 4;
 	store[101].store_to_pos_dist = 235;
-	store[101].second_near = 204;
+	store[101].second_near = 129;
 	store[101].store_to_sec_dist = 352;
 
-	store[100].position = 206;
+	store[100].position = 130;
 	strcpy(store[100].url, "https://www.tokkijung.co.kr/");
-	strcpy(store[100].name, "Åä³¢Á¤");
+	strcpy(store[100].name, "í† ë¼ì •");
 	store[100].price = 15000;
 	store[100].type = 0;
 	store[100].type_eat = 7;
 	store[100].store_to_pos_dist = 454;
-	store[100].second_near = 204;
+	store[100].second_near = 129;
 	store[100].store_to_sec_dist = 571;
 
-	store[97].position = 206;
+	store[97].position = 130;
 	strcpy(store[97].url, "X");
-	strcpy(store[97].name, "µ¹¼è¾ÆÀú¾¾");
+	strcpy(store[97].name, "ëŒì‡ ì•„ì €ì”¨");
 	store[97].price = 10000;
 	store[97].type = 0;
 	store[97].type_eat = 7;
 	store[97].store_to_pos_dist = 113;
-	store[97].second_near = 204;
+	store[97].second_near = 129;
 	store[97].store_to_sec_dist = 176;
 
-	store[99].position = 206;
+	store[99].position = 130;
 	strcpy(store[99].url, "https://www.kfckorea.com/");
 	strcpy(store[99].name, "KFC");
 	store[99].price = 8000;
 	store[99].type = 0;
 	store[99].type_eat = 7;
 	store[99].store_to_pos_dist = 175;
-	store[99].second_near = 204;
+	store[99].second_near = 129;
 	store[99].store_to_sec_dist = 293;
 
-	store[95].position = 206;
+	store[95].position = 130;
 	strcpy(store[95].url, "http://www.emoikorea.com/");
-	strcpy(store[95].name, "¿¡¸ÓÀÌ");
+	strcpy(store[95].name, "ì—ë¨¸ì´");
 	store[95].price = 10000;
 	store[95].type = 0;
 	store[95].type_eat = 7;
@@ -1260,151 +1261,154 @@ void setStoreInfo(Node store[]) {
 	store[95].second_near = 204;
 	store[95].store_to_sec_dist = 431;
 
-	store[96].position = 206;
+	store[96].position = 130;
 	strcpy(store[96].url, "http://www.nipongnaepong.co.kr/");
-	strcpy(store[96].name, "´Ï»Í³»»Í");
+	strcpy(store[96].name, "ë‹ˆë½•ë‚´ë½•");
 	store[96].price = 10000;
 	store[96].type = 0;
 	store[96].type_eat = 4;
 	store[96].store_to_pos_dist = 409;
-	store[96].second_near = 204;
+	store[96].second_near = 129;
 	store[96].store_to_sec_dist = 492;
 
-	store[102].position = 206;
+	store[102].position = 130;
 	strcpy(store[102].url, "sulbing.com");
-	strcpy(store[102].name, "¼³ºù");
+	strcpy(store[102].name, "ì„¤ë¹™");
 	store[102].price = 5000;
 	store[102].type = 3;
 	store[102].type_eat = 0;
 	store[102].store_to_pos_dist = 178;
-	store[102].second_near = 204;
+	store[102].second_near = 129;
 	store[102].store_to_sec_dist = 296;
 
-	store[94].position = 206;
+	store[94].position = 130;
 	strcpy(store[94].url, "X");
-	strcpy(store[94].name, "ÇÏÆ®¾à±¹");
+	strcpy(store[94].name, "í•˜íŠ¸ì•½êµ­");
 	store[94].price = 0;
 	store[94].type = 1;
 	store[94].type_eat = 0;
 	store[94].store_to_pos_dist = 72;
-	store[94].second_near = 204;
+	store[94].second_near = 129;
 	store[94].store_to_sec_dist = 190;
 
-	store[93].position = 206;
+	store[93].position = 130;
 	strcpy(store[93].url, "cu.bgfretail.com");
-	strcpy(store[93].name, "CUÁ¾·Îµ¿¼şµ¿Á¡");
+	strcpy(store[93].name, "CUì¢…ë¡œë™ìˆ­ë™ì ");
 	store[93].price = 0;
 	store[93].type = 2;
 	store[93].type_eat = 0;
 	store[93].store_to_pos_dist = 116;
-	store[93].second_near = 204;
+	store[93].second_near = 129;
 	store[93].store_to_sec_dist = 234;
 
 
-	//----------------------°Ç¹°Á¤Á¡--------------------------
-	store[200].position = 200;
-	strcpy(store[200].url, "X");
-	strcpy(store[200].name, "°æ¿µ°ü");
-	store[200].price = 0;
-	store[200].type = 4;
-	store[200].store_to_pos_dist = 0;
-	store[200].second_near = 201;
-	store[200].store_to_sec_dist = 92;
+	//----------------------------ê±´ë¬¼ì •ì ------------------------------
+	store[119].position = 119;
+	strcpy(store[119].url, "X");
+	strcpy(store[119].name, "ìˆ˜ì„ ê´€");
+	store[119].price = 0;
+	store[119].type = 4;
+	store[119].type_eat = 0;
+	store[119].second_near = 121;
+	store[119].store_to_pos_dist = 83;
 
-	store[201].position = 201;
-	strcpy(store[201].url, "X");
-	strcpy(store[201].name, "Áß¾Óµµ¼­°ü");
-	store[201].price = 0;
-	store[201].type = 4;
-	store[201].type_eat = 0;
-	store[201].second_near = 202;
-	store[201].store_to_pos_dist = 0;
+	store[120].position = 120;
+	strcpy(store[120].url, "X");
+	strcpy(store[120].name, "ê²½ì œê´€");
+	store[120].price = 0;
+	store[120].type = 4;
+	store[120].type_eat = 0;
+	store[120].second_near = 122;
+	store[120].store_to_pos_dist = 46;
 
-	store[202].position = 202;
-	strcpy(store[202].url, "X");
-	strcpy(store[202].name, "ÂÊ¹®¿¤¸®º£ÀÌÅÍ");
-	store[202].price = 0;
-	store[202].type = 4;
-	store[202].type_eat = 0;
-	store[202].store_to_pos_dist = 0;
+	store[121].position = 121;
+	strcpy(store[121].url, "X");
+	strcpy(store[121].name, "í˜¸ì•”ê´€");
+	store[121].price = 0;
+	store[121].type = 4;
+	store[121].type_eat = 0;
+	store[121].second_near = 119;
+	store[121].store_to_pos_dist = 83;
 
+	store[122].position = 122;
+	strcpy(store[122].url, "X");
+	strcpy(store[122].name, "ê²½ì˜ê´€");
+	store[122].price = 0;
+	store[122].type = 4;
+	store[122].store_to_pos_dist = 0;
+	store[122].second_near = 120;
+	store[122].store_to_sec_dist = 46;
 
-	store[203].position = 203;
-	strcpy(store[203].url, "X");
-	strcpy(store[203].name, "ÇĞ±³Á¤¹®");
-	store[203].price = 0;
-	store[203].type = 4;
-	store[203].type_eat = 0;
-	store[203].store_to_pos_dist = 0;
+	store[123].position = 123;
+	strcpy(store[123].url, "X");
+	strcpy(store[123].name, "ì¤‘ì•™ë„ì„œê´€");
+	store[123].price = 0;
+	store[123].type = 4;
+	store[123].type_eat = 0;
+	store[123].second_near = 122;
+	store[123].store_to_pos_dist = 92;
 
+	store[124].position = 124;
+	strcpy(store[124].url, "X");
+	strcpy(store[124].name, "êµ­ì œê´€");
+	store[124].price = 0;
+	store[124].type = 4;
+	store[124].type_eat = 0;
+	store[124].second_near = 125;
+	store[124].store_to_pos_dist = 121;
 
-	store[204].position = 204;
-	strcpy(store[204].url, "X");
-	strcpy(store[204].name, "ÇıÈ­¿ª4¹øÃâ±¸");
-	store[204].price = 0;
-	store[204].type = 4;
-	store[204].type_eat = 0;
-	store[204].store_to_pos_dist = 0;
+	store[125].position = 125;
+	strcpy(store[125].url, "X");
+	strcpy(store[125].name, "600ì£¼ë…„ê¸°ë…ê´€");
+	store[125].price = 0;
+	store[125].type = 4;
+	store[125].store_to_pos_dist = 0;
+	store[125].second_near = 124;
+	store[125].store_to_sec_dist = 121;
 
-
-	store[205].position = 205;
-	strcpy(store[205].url, "X");
-	strcpy(store[205].name, "¿Ã·¹»ç°Å¸®");
-	store[205].price = 0;
-	store[205].type = 4;
-	store[205].type_eat = 0;
-	store[205].store_to_pos_dist = 0;
-
-
-	store[206].position = 206;
-	strcpy(store[206].url, "X");
-	strcpy(store[206].name, "ÇıÈ­¿ª1¹øÃâ±¸");
-	store[206].price = 0;
-	store[206].type = 4;
-	store[206].type_eat = 0;
-	store[206].store_to_pos_dist = 0;
-
-
-	store[207].position = 207;
-	strcpy(store[207].url, "X");
-	strcpy(store[207].name, "È£¾Ï°ü");
-	store[207].price = 0;
-	store[207].type = 4;
-	store[207].type_eat = 0;
-	store[207].store_to_pos_dist = 0;
-
-
-	store[208].position = 208;
-	strcpy(store[208].url, "X");
-	strcpy(store[208].name, "¼ö¼±°ü");
-	store[208].price = 0;
-	store[208].type = 4;
-	store[208].type_eat = 0;
-	store[208].store_to_pos_dist = 0;
+	store[126].position = 126;
+	strcpy(store[126].url, "X");
+	strcpy(store[126].name, "ìª½ë¬¸ì—˜ë¦¬ë² ì´í„°");
+	store[126].price = 0;
+	store[126].type = 4;
+	store[126].type_eat = 0;
+	store[126].second_near = 123;
+	store[126].store_to_pos_dist = 113;
 
 
-	store[209].position = 209;
-	strcpy(store[209].url, "X");
-	strcpy(store[209].name, "°æÁ¦°ü");
-	store[209].price = 0;
-	store[209].type = 4;
-	store[209].type_eat = 0;
-	store[209].store_to_pos_dist = 0;
+	store[127].position = 127;
+	strcpy(store[127].url, "X");
+	strcpy(store[127].name, "í•™êµì •ë¬¸");
+	store[127].price = 0;
+	store[127].type = 4;
+	store[127].type_eat = 0;
+	store[127].second_near = 128;
+	store[127].store_to_pos_dist = 278;
 
-	store[210].position = 210;
-	strcpy(store[210].url, "X");
-	strcpy(store[210].name, "±¹Á¦°ü");
-	store[210].price = 0;
-	store[210].type = 4;
-	store[210].type_eat = 0;
-	store[210].store_to_pos_dist = 0;
+	store[128].position = 128;
+	strcpy(store[128].url, "X");
+	strcpy(store[128].name, "ì˜¬ë ˆì‚¬ê±°ë¦¬");
+	store[128].price = 0;
+	store[128].type = 4;
+	store[128].type_eat = 0;
+	store[128].second_near = 127;
+	store[128].store_to_pos_dist = 278;
 
-	store[216].position = 216;
-	strcpy(store[216].url, "X");
-	strcpy(store[216].name, "600ÁÖ³â±â³ä°ü");
-	store[216].price = 0;
-	store[216].type = 4;
-	store[216].store_to_pos_dist = 0;
-	store[216].store_to_sec_dist = 0;
-	return;
+	store[129].position = 129;
+	strcpy(store[129].url, "X");
+	strcpy(store[129].name, "í˜œí™”ì—­4ë²ˆì¶œêµ¬");
+	store[129].price = 0;
+	store[129].type = 4;
+	store[129].type_eat = 0;
+	store[129].second_near = 130;
+	store[129].store_to_pos_dist = 152;
+
+	store[130].position = 130;
+	strcpy(store[130].url, "X");
+	strcpy(store[130].name, "í˜œí™”ì—­1ë²ˆì¶œêµ¬");
+	store[130].price = 0;
+	store[130].type = 4;
+	store[130].type_eat = 0;
+	store[130].second_near = 129;
+	store[130].store_to_pos_dist = 152;
 }
