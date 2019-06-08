@@ -55,7 +55,7 @@ void setStoreInfo(Node store[]) {
 	//CU
 	store[2].position = 122;
 	strcpy(store[2].url, "X");
-	strcpy(store[2].name, "CU");
+	strcpy(store[2].name, "CU(성균관대경영관점)");
 	store[2].price = 0;
 	store[2].type = 2;
 	store[2].type_eat = 0;
@@ -809,7 +809,7 @@ void setStoreInfo(Node store[]) {
 	store[58].type = 0;
 	store[58].type_eat = 2;
 	store[58].store_to_pos_dist = 122;
-	store[58].second_near = 200;
+	store[58].second_near = 122;
 	store[58].store_to_sec_dist = 505;
 
 
@@ -1034,7 +1034,7 @@ void setStoreInfo(Node store[]) {
 	store[107].type = 0;
 	store[107].type_eat = 7;
 	store[107].store_to_pos_dist = 128;
-	store[107].second_near = 314;
+	store[107].second_near = 128;
 	store[107].store_to_sec_dist = 48;
 
 	store[106].position = 127;
@@ -1258,7 +1258,7 @@ void setStoreInfo(Node store[]) {
 	store[95].type = 0;
 	store[95].type_eat = 7;
 	store[95].store_to_pos_dist = 314;
-	store[95].second_near = 204;
+	store[95].second_near = 129;
 	store[95].store_to_sec_dist = 431;
 
 	store[96].position = 130;
