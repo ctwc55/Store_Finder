@@ -122,7 +122,7 @@ void setStoreInfo(Node store[]) {
 
 	//전설의 짬뽕
 	store[8].position = 128;
-	strcpy(store[8].url, "www.legendgo.co.kr");
+	strcpy(store[8].url, "http://legendgo.co.kr/web/home.php");
 	strcpy(store[8].name, "전설의 짬뽕");
 	store[8].price = 10000;
 	store[8].type = 0;
@@ -844,7 +844,7 @@ void setStoreInfo(Node store[]) {
 	store[60].store_to_sec_dist = 469;
 
 	store[62].position = 126;
-	strcpy(store[62].url, "www.bongousse.net/main.aspx");
+	strcpy(store[62].url, "http://m.bongousse.net/");
 	strcpy(store[62].name, "봉구스밥버거");
 	store[62].price = 5000;
 	store[62].type = 0;
@@ -894,7 +894,7 @@ void setStoreInfo(Node store[]) {
 	store[71].store_to_sec_dist = 560;
 
 	store[70].position = 126;
-	strcpy(store[70].url, "https://www.emart24.co.kr");
+	strcpy(store[70].url, "X");
 	strcpy(store[70].name, "이마트24편의점");
 	store[70].price = 0;
 	store[70].type = 2;
@@ -904,7 +904,7 @@ void setStoreInfo(Node store[]) {
 	store[70].store_to_sec_dist = 502;
 
 	store[72].position = 126;
-	strcpy(store[72].url, "gs25.gsretail.com");
+	strcpy(store[72].url, "X");
 	strcpy(store[72].name, "GS25명륜성대점");
 	store[72].price = 0;
 	store[72].type = 2;
@@ -947,8 +947,9 @@ void setStoreInfo(Node store[]) {
 
 
 	//----------------정문------------------------
+
 	store[87].position = 127;
-	strcpy(store[87].url, "www.cknia.com");
+	strcpy(store[87].url, "http://www.cknia.com/");
 	strcpy(store[87].name, "치킨매니아");
 	store[87].price = 15000;
 	store[87].type = 0;
@@ -978,7 +979,7 @@ void setStoreInfo(Node store[]) {
 	store[74].store_to_sec_dist = 236;
 
 	store[104].position = 127;
-	strcpy(store[104].url, "sinjeon.co.kr");
+	strcpy(store[104].url, "http://www.sinjeon.co.kr/");
 	strcpy(store[104].name, "신전떡볶이");
 	store[104].price = 5000;
 	store[104].type = 0;
@@ -1028,7 +1029,7 @@ void setStoreInfo(Node store[]) {
 	store[77].store_to_sec_dist = 169;
 
 	store[107].position = 127;
-	strcpy(store[107].url, "www.mcdonalds.co.kr");
+	strcpy(store[107].url, "http://www.mcdonalds.co.kr/www/kor/main/main.do");
 	strcpy(store[107].name, "맥도날드");
 	store[107].price = 8000;
 	store[107].type = 0;
@@ -1038,7 +1039,7 @@ void setStoreInfo(Node store[]) {
 	store[107].store_to_sec_dist = 48;
 
 	store[106].position = 127;
-	strcpy(store[106].url, "pizzaschool.net");
+	strcpy(store[106].url, "http://pizzaschool.net/");
 	strcpy(store[106].name, "피자스쿨");
 	store[106].price = 8000;
 	store[106].type = 0;
@@ -1109,7 +1110,7 @@ void setStoreInfo(Node store[]) {
 
 
 	store[84].position = 127;
-	strcpy(store[84].url, "ediya.com");
+	strcpy(store[84].url, "https://www.ediya.com/");
 	strcpy(store[84].name , "이디야");
 	store[84].price = 5000;
 	store[84].type = 3;
@@ -1119,7 +1120,7 @@ void setStoreInfo(Node store[]) {
 	store[84].store_to_sec_dist = 86;
 
 	store[83].position = 127;
-	strcpy(store[83].url, "www.tomntoms.com");
+	strcpy(store[83].url, "https://www.tomntoms.com/");
 	strcpy(store[83].name, "탐앤탐스");
 	store[83].price = 5000;
 	store[83].type = 3;
@@ -1129,7 +1130,7 @@ void setStoreInfo(Node store[]) {
 	store[83].store_to_sec_dist = 67;
 
 	store[76].position = 127;
-	strcpy(store[76].url, "www.emart24.co.kr");
+	strcpy(store[76].url, "X");
 	strcpy(store[76].name, "이마트24");
 	store[76].price = 0;
 	store[76].type = 2;
@@ -1139,7 +1140,7 @@ void setStoreInfo(Node store[]) {
 	store[76].store_to_sec_dist = 116;
 
 	store[75].position = 127;
-	strcpy(store[75].url, "www.7-eleven.co.kr");
+	strcpy(store[75].url, "X");
 	strcpy(store[75].name, "세븐일레븐성대점");
 	store[75].price = 0;
 	store[75].type = 2;
@@ -1149,7 +1150,7 @@ void setStoreInfo(Node store[]) {
 	store[75].store_to_sec_dist = 207;
 
 	store[79].position = 127;
-	strcpy(store[79].url, "gs25.gsretail.com");
+	strcpy(store[79].url, "X");
 	strcpy(store[79].name, "GS25성대입구점");
 	store[79].price = 0;
 	store[79].type = 2;
@@ -1272,7 +1273,7 @@ void setStoreInfo(Node store[]) {
 	store[96].store_to_sec_dist = 492;
 
 	store[102].position = 130;
-	strcpy(store[102].url, "sulbing.com");
+	strcpy(store[102].url, "https://www.sulbing.com/main.php");
 	strcpy(store[102].name, "설빙");
 	store[102].price = 5000;
 	store[102].type = 3;
@@ -1292,7 +1293,7 @@ void setStoreInfo(Node store[]) {
 	store[94].store_to_sec_dist = 190;
 
 	store[93].position = 130;
-	strcpy(store[93].url, "cu.bgfretail.com");
+	strcpy(store[93].url, "X");
 	strcpy(store[93].name, "CU종로동숭동점");
 	store[93].price = 0;
 	store[93].type = 2;
@@ -1303,14 +1304,16 @@ void setStoreInfo(Node store[]) {
 
 
 	//----------------------------건물정점------------------------------
+	
 	store[119].position = 119;
 	strcpy(store[119].url, "X");
 	strcpy(store[119].name, "수선관");
 	store[119].price = 0;
 	store[119].type = 4;
 	store[119].type_eat = 0;
+	store[119].store_to_pos_dist = 0;
 	store[119].second_near = 121;
-	store[119].store_to_pos_dist = 83;
+	store[119].store_to_sec_dist = 83;
 
 	store[120].position = 120;
 	strcpy(store[120].url, "X");
@@ -1318,8 +1321,9 @@ void setStoreInfo(Node store[]) {
 	store[120].price = 0;
 	store[120].type = 4;
 	store[120].type_eat = 0;
+	store[120].store_to_pos_dist = 0;
 	store[120].second_near = 122;
-	store[120].store_to_pos_dist = 46;
+	store[120].store_to_sec_dist = 46;
 
 	store[121].position = 121;
 	strcpy(store[121].url, "X");
@@ -1327,14 +1331,16 @@ void setStoreInfo(Node store[]) {
 	store[121].price = 0;
 	store[121].type = 4;
 	store[121].type_eat = 0;
+	store[121].store_to_pos_dist = 0;
 	store[121].second_near = 119;
-	store[121].store_to_pos_dist = 83;
+	store[121].store_to_sec_dist = 83;
 
 	store[122].position = 122;
 	strcpy(store[122].url, "X");
 	strcpy(store[122].name, "경영관");
 	store[122].price = 0;
 	store[122].type = 4;
+	store[122].type_eat = 0;
 	store[122].store_to_pos_dist = 0;
 	store[122].second_near = 120;
 	store[122].store_to_sec_dist = 46;
@@ -1345,8 +1351,9 @@ void setStoreInfo(Node store[]) {
 	store[123].price = 0;
 	store[123].type = 4;
 	store[123].type_eat = 0;
+	store[123].store_to_pos_dist = 0;
 	store[123].second_near = 122;
-	store[123].store_to_pos_dist = 92;
+	store[123].store_to_sec_dist = 92;
 
 	store[124].position = 124;
 	strcpy(store[124].url, "X");
@@ -1354,14 +1361,16 @@ void setStoreInfo(Node store[]) {
 	store[124].price = 0;
 	store[124].type = 4;
 	store[124].type_eat = 0;
+	store[124].store_to_pos_dist = 0;
 	store[124].second_near = 125;
-	store[124].store_to_pos_dist = 121;
+	store[124].store_to_sec_dist = 121;
 
 	store[125].position = 125;
 	strcpy(store[125].url, "X");
 	strcpy(store[125].name, "600주년기념관");
 	store[125].price = 0;
 	store[125].type = 4;
+	store[125].type_eat = 0;
 	store[125].store_to_pos_dist = 0;
 	store[125].second_near = 124;
 	store[125].store_to_sec_dist = 121;
@@ -1372,8 +1381,9 @@ void setStoreInfo(Node store[]) {
 	store[126].price = 0;
 	store[126].type = 4;
 	store[126].type_eat = 0;
+	store[126].store_to_pos_dist = 0;
 	store[126].second_near = 123;
-	store[126].store_to_pos_dist = 113;
+	store[126].store_to_sec_dist = 113;
 
 
 	store[127].position = 127;
@@ -1382,8 +1392,9 @@ void setStoreInfo(Node store[]) {
 	store[127].price = 0;
 	store[127].type = 4;
 	store[127].type_eat = 0;
+	store[127].store_to_pos_dist = 0;
 	store[127].second_near = 128;
-	store[127].store_to_pos_dist = 278;
+	store[127].store_to_sec_dist = 278;
 
 	store[128].position = 128;
 	strcpy(store[128].url, "X");
@@ -1391,8 +1402,9 @@ void setStoreInfo(Node store[]) {
 	store[128].price = 0;
 	store[128].type = 4;
 	store[128].type_eat = 0;
+	store[128].store_to_pos_dist = 0;
 	store[128].second_near = 127;
-	store[128].store_to_pos_dist = 278;
+	store[128].store_to_sec_dist = 278;
 
 	store[129].position = 129;
 	strcpy(store[129].url, "X");
@@ -1400,8 +1412,9 @@ void setStoreInfo(Node store[]) {
 	store[129].price = 0;
 	store[129].type = 4;
 	store[129].type_eat = 0;
+	store[129].store_to_pos_dist = 0;
 	store[129].second_near = 130;
-	store[129].store_to_pos_dist = 152;
+	store[129].store_to_sec_dist = 152;
 
 	store[130].position = 130;
 	strcpy(store[130].url, "X");
@@ -1409,6 +1422,7 @@ void setStoreInfo(Node store[]) {
 	store[130].price = 0;
 	store[130].type = 4;
 	store[130].type_eat = 0;
+	store[130].store_to_pos_dist = 0;
 	store[130].second_near = 129;
-	store[130].store_to_pos_dist = 152;
+	store[130].store_to_sec_dist = 152;
 }

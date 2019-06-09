@@ -57,8 +57,8 @@ int restaurant_sortType();
 int drugstorePage();
 int cvsPage();
 int cafePage();
-void printPossibleListPage(int store_type, int print_type);
-void printRoute(int store_position);
+int printPossibleListPage(int store_type, int print_type);
+void printRoute(int store_position, int print_type);
 
 //algorithm functions
 void initGraph(); //정점 간 모든 거리를 무한대로 설정합니다 + route도 NIL로 초기화
@@ -80,7 +80,6 @@ int main()
 	setEdgeDist();
 	setAddEdgeDist();
 	floydWarshallAlgorithm();
-	//system("explorer http://naver.com");
 
 	while (run) {
 		select_mode = mainPage();
@@ -216,8 +215,10 @@ void endPage() {
 }
 
 int restaurantPage() {
-	int x = 3, y = 8, com, run = TRUE;
+	int x = 3, y = 8, com, run = TRUE, run2 = TRUE;
 	int restaurant_position, restaurant_type, price_range, restaurant_sort_type, print_type;
+	int selected_store, url_open, selection_url_x;
+	char url[110] = "explorer ";
 
 	user_position = restaurant_userPosition(); //사용자 위치
 	if (user_position == 99) return TRUE;
@@ -260,7 +261,6 @@ int restaurantPage() {
 	restaurant_sort_type = restaurant_sortType(); //정렬 기준
 	sortingStore(RESTAURANT, restaurant_sort_type);
 
-	// TOP 5 or 전체 출력 선택
 	system("cls");
 	printf("┌────────────────────────────────────────────────────────────────┐\n");
 	printf("│             명륜동 유생의 가게 찾기 도우미                     │\n");
@@ -308,10 +308,170 @@ int restaurantPage() {
 	}
 
 	//출력 및 url 연결
-	if (print_type == 8) printPossibleListPage(RESTAURANT, 0); //TOP 5
-	else if (print_type == 9) printPossibleListPage(RESTAURANT, 1); //전체
+	run = TRUE;
+	while (run) {
+		selection_url_x = FALSE;
+		if (print_type == 8) selected_store = printPossibleListPage(RESTAURANT, 0); //TOP 5
+		else if (print_type == 9) selected_store = printPossibleListPage(RESTAURANT, 1); //전체
 
-	system("pause");
+		x = 3;
+		y = 8;
+		run2 = TRUE;
+		if (strcmp(possible_stores[selected_store].url, "X")) {
+			system("cls");
+			printf("┌────────────────────────────────────────────────────────────────┐\n");
+			printf("│             명륜동 유생의 가게 찾기 도우미                     │\n");
+			printf("├────────────────────────────────────────────────────────────────┤\n");
+			printf("│   %-25s의 url이 존재합니다! 연결할까요?    │\n", possible_stores[selected_store].name);
+			printf("│                                                                │\n");
+			printf("│   *방향키와 스페이스바로 조작할 수 있습니다                    │\n");
+			printf("├────────────────────────────────────────────────────────────────┤\n");
+			printf("│                                                                │\n");
+			printf("│  > 네 연결할래요!                                              │\n");
+			printf("│    관둘래요..                                                  │\n");
+			printf("│                                                                │\n");
+			printf("└────────────────────────────────────────────────────────────────┘\n");
+
+			while (run2) {
+				com = keyReturn();
+				switch (com)
+				{
+				case UP:
+					if (y > 8) {
+						gotoxy(x, y);
+						printf(" ");
+						gotoxy(x, --y);
+						printf(">");
+					}
+					break;
+
+				case DOWN:
+					if (y < 9) {
+						gotoxy(x, y);
+						printf(" ");
+						gotoxy(x, ++y);
+						printf(">");
+					}
+					break;
+
+				case SPACE:
+					url_open = y;
+					run2 = FALSE;
+					break;
+
+				default:
+					break;
+				}
+			}
+
+			if (url_open == 8) {
+				strcat(url, possible_stores[selected_store].url);
+				system(url);
+				strcpy(url, "explorer ");
+			}
+
+		}
+		else {
+			system("cls");
+			printf("┌────────────────────────────────────────────────────────────────┐\n");
+			printf("│             명륜동 유생의 가게 찾기 도우미                     │\n");
+			printf("├────────────────────────────────────────────────────────────────┤\n");
+			printf("│   %-25s의 url이 존재하지 않습니다!         │\n", possible_stores[selected_store].name);
+			printf("│                                                                │\n");
+			printf("│   *방향키와 스페이스바로 조작할 수 있습니다                    │\n");
+			printf("├────────────────────────────────────────────────────────────────┤\n");
+			printf("│                                                                │\n");
+			printf("│  > 목록 다시보기                                               │\n");
+			printf("│    처음으로                                                    │\n");
+			printf("│                                                                │\n");
+			printf("└────────────────────────────────────────────────────────────────┘\n");
+
+			while (run2) {
+				com = keyReturn();
+				switch (com)
+				{
+				case UP:
+					if (y > 8) {
+						gotoxy(x, y);
+						printf(" ");
+						gotoxy(x, --y);
+						printf(">");
+					}
+					break;
+
+				case DOWN:
+					if (y < 9) {
+						gotoxy(x, y);
+						printf(" ");
+						gotoxy(x, ++y);
+						printf(">");
+					}
+					break;
+
+				case SPACE:
+					selection_url_x = y;
+					run2 = FALSE;
+					break;
+
+				default:
+					break;
+				}
+			}
+		}
+
+		x = 3;
+		y = 8;
+		run2 = TRUE;
+		if (selection_url_x == FALSE) {
+			system("cls");
+			printf("┌────────────────────────────────────────────────────────────────┐\n");
+			printf("│             명륜동 유생의 가게 찾기 도우미                     │\n");
+			printf("├────────────────────────────────────────────────────────────────┤\n");
+			printf("│   결과는 만족스러우셨나요? 식사 맛있게 하시고 오늘도 힘내세요! │\n");
+			printf("│                                                                │\n");
+			printf("│   *방향키와 스페이스바로 조작할 수 있습니다                    │\n");
+			printf("├────────────────────────────────────────────────────────────────┤\n");
+			printf("│                                                                │\n");
+			printf("│  > 목록 다시보기                                               │\n");
+			printf("│    처음으로                                                    │\n");
+			printf("│                                                                │\n");
+			printf("└────────────────────────────────────────────────────────────────┘\n");
+
+			while (run2) {
+				com = keyReturn();
+				switch (com)
+				{
+				case UP:
+					if (y > 8) {
+						gotoxy(x, y);
+						printf(" ");
+						gotoxy(x, --y);
+						printf(">");
+					}
+					break;
+
+				case DOWN:
+					if (y < 9) {
+						gotoxy(x, y);
+						printf(" ");
+						gotoxy(x, ++y);
+						printf(">");
+					}
+					break;
+
+				case SPACE:
+					if (y == 8) run2 = FALSE;
+					else if (y == 9) return TRUE;
+					break;
+
+				default:
+					break;
+				}
+			}
+		}
+		else if (selection_url_x == 8) continue;
+		else if (selection_url_x == 9) run = FALSE;
+	}
 	return TRUE;
 }
 
@@ -1087,14 +1247,16 @@ int cafePage() { //사용자 현재위치 선택
 	return TRUE;
 }
 
-void printPossibleListPage(int store_type, int print_type) {
+int printPossibleListPage(int store_type, int print_type) {
+	int x = 0, y = 10, com, run = TRUE;
+
 	system("cls");
 	printf("┌────────────────────────────────────────────────────────────────┐\n");
 	printf("│             명륜동 유생의 가게 찾기 도우미                     │\n");
 	printf("├────────────────────────────────────────────────────────────────┤\n");
 	printf("│   가능한 가게들의 목록입니다!                                  │\n");
 	printf("│   가게를 하나 선택해주시면 메뉴 확인이 가능한 사이트가 있는지  │\n");
-	printf("│   알아보겠습니다!                                              │\n");
+	printf("│   알아보겠습니다! (식당인 경우에만 가능합니다!)                │\n");
 	printf("│                                                                │\n");
 	printf("│   *방향키와 스페이스바로 조작할 수 있습니다                    │\n");
 	printf("└────────────────────────────────────────────────────────────────┘\n");
@@ -1102,31 +1264,100 @@ void printPossibleListPage(int store_type, int print_type) {
 	if (print_type == 0) {
 		for (int i = 0; i < 5 && i < possible_stores.size(); i++) {
 			printf("\n");
-			printf("TOP %d. %s\n", i + 1, possible_stores[i].name);
-			printf("       거리 : 약 %dm(약 %d분)", graph[user_position][possible_stores[i].key], graph[user_position][possible_stores[i].key] / 70); //1분에 약 70m를 걷는다고 가정
+			printf("%c", (store_type == RESTAURANT && i == 0) ? '>' : ' ');
+			printf("  TOP %d. %s\n", i + 1, possible_stores[i].name);
+			printf("          거리 : 약 %dm(약 %d분)", graph[user_position][possible_stores[i].key], graph[user_position][possible_stores[i].key] / 70); //1분에 약 70m를 걷는다고 가정
 			if (store_type == RESTAURANT) printf("   가격 : 약 %d원\n", possible_stores[i].price);
 			else printf("\n");
-			printRoute(possible_stores[i].key);
+			printRoute(possible_stores[i].key, 0);
 		}
+		if (store_type == RESTAURANT) {
+			while (run) {
+				com = keyReturn();
+				switch (com)
+				{
+				case UP:
+					if (y > 10) {
+						gotoxy(x, y);
+						printf(" ");
+						y -= 4;
+						gotoxy(x, y);
+						printf(">");
+					}
+					break;
 
+				case DOWN:
+					if (y < 10 + 4 * 4) {
+						gotoxy(x, y);
+						printf(" ");
+						y += 4;
+						gotoxy(x, y);
+						printf(">");
+					}
+					break;
+
+				case SPACE:
+					return (y - 10) / 4;
+					break;
+
+				default:
+					break;
+				}
+			}
+		}
 	}
 	else if (print_type == 1) {
 		for (int i = 0; i < possible_stores.size(); i++) {
 			printf("\n");
-			printf("%d. %s\n", i + 1, possible_stores[i].name);
-			printf("   거리 : 약 %dm(약 %d분)", graph[user_position][possible_stores[i].key], graph[user_position][possible_stores[i].key] / 70); //1분에 약 70m를 걷는다고 가정
+			printf("%c", (store_type == RESTAURANT && i == 0) ? '>' : ' ');
+			printf("  %3d. %s\n", i + 1, possible_stores[i].name);
+			printf("       거리 : 약 %dm(약 %d분)", graph[user_position][possible_stores[i].key], graph[user_position][possible_stores[i].key] / 70); //1분에 약 70m를 걷는다고 가정
 			if (store_type == RESTAURANT) printf("   가격 : 약 %d원\n", possible_stores[i].price);
 			else printf("\n");
-			printRoute(possible_stores[i].key);
+			printRoute(possible_stores[i].key, 1);
+		}
+		if (store_type == RESTAURANT) {
+			while (run) {
+				com = keyReturn();
+				switch (com)
+				{
+				case UP:
+					if (y > 10) {
+						gotoxy(x, y);
+						printf(" ");
+						y -= 4;
+						gotoxy(x, y);
+						printf(">");
+					}
+					break;
+
+				case DOWN:
+					if (y < 10 + (possible_stores.size() - 1) * 4) {
+						gotoxy(x, y);
+						printf(" ");
+						y += 4;
+						gotoxy(x, y);
+						printf(">");
+					}
+					break;
+
+				case SPACE:
+					return (y - 10) / 4;
+					break;
+
+				default:
+					break;
+				}
+			}
 		}
 	}
-	return;
 }
 
-void printRoute(int store_position) {
+void printRoute(int store_position, int print_type) {
 	int route_tmp = route[user_position][store_position];
-	printf("경로 : %s -> ", store[user_position].name);
-	
+	if (print_type == 0) printf("          경로 : %s -> ", store[user_position].name);
+	else printf("       경로 : %s -> ", store[user_position].name);
+
 	while (route_tmp != user_position) {
 		print_route.push_back(route_tmp);
 		route_tmp = route[user_position][route_tmp];
@@ -1210,8 +1441,8 @@ void floydWarshallAlgorithm() {
 		for (int i = 0; i < STORENUM; i++) {
 			for (int j = 0; j < STORENUM; j++) {
 				if (graph[i][j] > graph[i][k] + graph[k][j]) { //i에서 j로 갈 때 기존 보다 k를 더 거쳐 가는게 더 가까울 때
-					graph[i][j] = graph[i][k] + graph[k][j]; // 최단 거리 갱신
-					route[i][j] = route[k][j]; // i에서 j 도착 직전 정점을 k에서 j 도착 직전 정점으로 갱신
+					graph[i][j] = graph[i][k] + graph[k][j]; //최단 거리 갱신
+					route[i][j] = route[k][j]; //i에서 j 도착 직전 정점을 k에서 j 도착 직전 정점으로 갱신
 				}
 			}
 		}
@@ -1239,49 +1470,49 @@ void filteringStore(int store_type, int restaurant_type, int area, int price) {
 					else if (price == 1 && (store[i].price > 5000 && store[i].price < 10000)) possible_stores.push_back(store[i]);
 					else if (price == 2 && (store[i].price >= 10000 && store[i].price < 15000)) possible_stores.push_back(store[i]);
 					else if (price == 3 && (store[i].price >= 15000 && store[i].price <= 25000)) possible_stores.push_back(store[i]);
-					else possible_stores.push_back(store[i]);
+					else if (price == 4) possible_stores.push_back(store[i]);
 				}
 				else if (area == 1 && (i >= 55 && i <= 72)) {
 					if (price == 0 && (store[i].price >= 0 && store[i].price <= 5000)) possible_stores.push_back(store[i]);
 					else if (price == 1 && (store[i].price > 5000 && store[i].price < 10000)) possible_stores.push_back(store[i]);
 					else if (price == 2 && (store[i].price >= 10000 && store[i].price < 15000)) possible_stores.push_back(store[i]);
 					else if (price == 3 && (store[i].price >= 15000 && store[i].price <= 25000)) possible_stores.push_back(store[i]);
-					else possible_stores.push_back(store[i]);
+					else if (price == 4) possible_stores.push_back(store[i]);
 				}
 				else if (area == 2 && ((i >= 40 && i <= 54) || (i >= 108 && i <= 118))) {
 					if (price == 0 && (store[i].price >= 0 && store[i].price <= 5000)) possible_stores.push_back(store[i]);
 					else if (price == 1 && (store[i].price > 5000 && store[i].price < 10000)) possible_stores.push_back(store[i]);
 					else if (price == 2 && (store[i].price >= 10000 && store[i].price < 15000)) possible_stores.push_back(store[i]);
 					else if (price == 3 && (store[i].price >= 15000 && store[i].price <= 25000)) possible_stores.push_back(store[i]);
-					else possible_stores.push_back(store[i]);
+					else if (price == 4) possible_stores.push_back(store[i]);
 				}
 				else if (area == 3 && ((i >= 73 && i <= 88) || (i >= 103 && i <= 107))) {
 					if (price == 0 && (store[i].price >= 0 && store[i].price <= 5000)) possible_stores.push_back(store[i]);
 					else if (price == 1 && (store[i].price > 5000 && store[i].price < 10000)) possible_stores.push_back(store[i]);
 					else if (price == 2 && (store[i].price >= 10000 && store[i].price < 15000)) possible_stores.push_back(store[i]);
 					else if (price == 3 && (store[i].price >= 15000 && store[i].price <= 25000)) possible_stores.push_back(store[i]);
-					else possible_stores.push_back(store[i]);
+					else if (price == 4) possible_stores.push_back(store[i]);
 				}
 				else if (area == 4 && (i >= 7 && i <= 39)) {
 					if (price == 0 && (store[i].price >= 0 && store[i].price <= 5000)) possible_stores.push_back(store[i]);
 					else if (price == 1 && (store[i].price > 5000 && store[i].price < 10000)) possible_stores.push_back(store[i]);
 					else if (price == 2 && (store[i].price >= 10000 && store[i].price < 15000)) possible_stores.push_back(store[i]);
 					else if (price == 3 && (store[i].price >= 15000 && store[i].price <= 25000)) possible_stores.push_back(store[i]);
-					else possible_stores.push_back(store[i]);
+					else if (price == 4) possible_stores.push_back(store[i]);
 				}
 				else if (area == 5 && (i >= 89 && i <= 102)) {
 					if (price == 0 && (store[i].price >= 0 && store[i].price <= 5000)) possible_stores.push_back(store[i]);
 					else if (price == 1 && (store[i].price > 5000 && store[i].price < 10000)) possible_stores.push_back(store[i]);
 					else if (price == 2 && (store[i].price >= 10000 && store[i].price < 15000)) possible_stores.push_back(store[i]);
 					else if (price == 3 && (store[i].price >= 15000 && store[i].price <= 25000)) possible_stores.push_back(store[i]);
-					else possible_stores.push_back(store[i]);
+					else if (price == 4) possible_stores.push_back(store[i]);
 				}
-				else {
+				else if (area == 6) {
 					if (price == 0 && (store[i].price >= 0 && store[i].price <= 5000)) possible_stores.push_back(store[i]);
 					else if (price == 1 && (store[i].price > 5000 && store[i].price < 10000)) possible_stores.push_back(store[i]);
 					else if (price == 2 && (store[i].price >= 10000 && store[i].price < 15000)) possible_stores.push_back(store[i]);
 					else if (price == 3 && (store[i].price >= 15000 && store[i].price <= 25000)) possible_stores.push_back(store[i]);
-					else possible_stores.push_back(store[i]);
+					else if (price == 4) possible_stores.push_back(store[i]);
 				}
 			}
 		}
