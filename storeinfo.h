@@ -575,7 +575,7 @@ void setStoreInfo(Node store[]) {
 
 	//육회한연어
 	store[49].position = 128;
-	strcpy(store[49].url, "http://www.happysalmon.co.kr/");
+	strcpy(store[49].url, "X");
 	strcpy(store[49].name, "육회한연어");
 	store[49].price = 15000;
 	store[49].type = 0;
