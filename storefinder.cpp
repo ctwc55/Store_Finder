@@ -59,6 +59,7 @@ int cvsPage();
 int cafePage();
 int printPossibleListPage(int store_type, int print_type);
 void printRoute(int store_position, int print_type);
+void DCCEndBanner();
 
 //algorithm functions
 void initGraph(); //정점 간 모든 거리를 무한대로 설정합니다 + route도 NIL로 초기화
@@ -259,6 +260,7 @@ int restaurantPage() {
 	}
 
 	restaurant_sort_type = restaurant_sortType(); //정렬 기준
+	if (restaurant_sort_type == 99) return TRUE;
 	sortingStore(RESTAURANT, restaurant_sort_type);
 
 	system("cls");
@@ -322,7 +324,9 @@ int restaurantPage() {
 			printf("┌────────────────────────────────────────────────────────────────┐\n");
 			printf("│             명륜동 유생의 가게 찾기 도우미                     │\n");
 			printf("├────────────────────────────────────────────────────────────────┤\n");
-			printf("│   %-25s의 url이 존재합니다! 연결할까요?    │\n", possible_stores[selected_store].name);
+			printf("│   %s의 url이 존재합니다! 연결할까요?", possible_stores[selected_store].name);
+			for (int space = 0; space < 64 - (strlen(possible_stores[selected_store].name) + 35); space++) printf(" ");
+			printf("│\n");
 			printf("│                                                                │\n");
 			printf("│   *방향키와 스페이스바로 조작할 수 있습니다                    │\n");
 			printf("├────────────────────────────────────────────────────────────────┤\n");
@@ -376,7 +380,9 @@ int restaurantPage() {
 			printf("┌────────────────────────────────────────────────────────────────┐\n");
 			printf("│             명륜동 유생의 가게 찾기 도우미                     │\n");
 			printf("├────────────────────────────────────────────────────────────────┤\n");
-			printf("│   %-25s의 url이 존재하지 않습니다!         │\n", possible_stores[selected_store].name);
+			printf("│   %s의 url이 존재하지 않습니다!", possible_stores[selected_store].name);
+			for (int space = 0; space < 64 - (strlen(possible_stores[selected_store].name) + 30); space++) printf(" ");
+			printf("│\n");
 			printf("│                                                                │\n");
 			printf("│   *방향키와 스페이스바로 조작할 수 있습니다                    │\n");
 			printf("├────────────────────────────────────────────────────────────────┤\n");
@@ -844,7 +850,7 @@ int restaurant_sortType() {
 			break;
 
 		case DOWN:
-			if (y < 11) {
+			if (y < 10) {
 				gotoxy(x, y);
 				printf(" ");
 				gotoxy(x, ++y);
@@ -988,8 +994,7 @@ int drugstorePage() { //사용자 현재위치 선택
 	filteringStore(DRUGSTORE, 0, 0, 0);
 	sortingStore(DRUGSTORE, 0);
 	printPossibleListPage(DRUGSTORE, 1);
-
-	system("pause");
+	DCCEndBanner();
 	return TRUE;
 }
 
@@ -1115,8 +1120,7 @@ int cvsPage() { //사용자 현재위치 선택
 	filteringStore(CVS, 0, 0, 0);
 	sortingStore(CVS, 0);
 	printPossibleListPage(CVS, 1);
-
-	system("pause");
+	DCCEndBanner();
 	return TRUE;
 }
 
@@ -1242,8 +1246,7 @@ int cafePage() { //사용자 현재위치 선택
 	filteringStore(CAFE, 0, 0, 0);
 	sortingStore(CAFE, 0);
 	printPossibleListPage(CAFE, 1);
-
-	system("pause");
+	DCCEndBanner();
 	return TRUE;
 }
 
@@ -1368,6 +1371,33 @@ void printRoute(int store_position, int print_type) {
 		print_route.pop_back();
 	}
 	printf("%s\n", store[store_position].name);
+	return;
+}
+
+void DCCEndBanner() {
+	int com, run = TRUE;
+
+	printf("\n");
+	printf("┌────────────────────────────────────────────────────────────────┐\n");
+	printf("│   결과는 만족스러우셨나요? 좋은 하루 보내세요!                 │\n");
+	printf("├────────────────────────────────────────────────────────────────┤\n");
+	printf("│                                                                │\n");
+	printf("│  > 처음으로                                                    │\n");
+	printf("│                                                                │\n");
+	printf("└────────────────────────────────────────────────────────────────┘\n");
+
+	while (run) {
+		com = keyReturn();
+		switch (com)
+		{
+		case SPACE:
+			run = FALSE;
+			break;
+
+		default:
+			break;
+		}
+	}
 	return;
 }
 
